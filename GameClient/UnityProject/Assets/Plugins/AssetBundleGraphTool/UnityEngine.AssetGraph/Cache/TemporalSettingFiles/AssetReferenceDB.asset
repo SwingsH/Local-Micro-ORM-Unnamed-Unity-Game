@@ -13,84 +13,12 @@ MonoBehaviour:
   m_Name: AssetReferenceDB
   m_EditorClassIdentifier: 
   m_assets:
-  - m_assetDatabaseId: b960be42404a4bada6284d9a690b2dce
-    m_importFrom: Assets/Scripts/TIZSoftCommon/Editor/AssetSettingsInspector.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 94c2ff975e1354f429646eb65d1539d5
-    m_importFrom: Assets/Plugins/AssetBundleGraphTool/UnityEngine.AssetGraph/Cache/TemporalSettingFiles
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 0200e79ad21c60b40a12e936fd8b78bd
-    m_importFrom: Assets/Plugins/AssetBundleGraphTool/UnityEngine.AssetGraph/Cache
+  - m_assetDatabaseId: 0f9d84d73e508eb40ad9a31655738d63
+    m_importFrom: Assets/Scripts/SimpleHTTPServer/HttpServer.cs
     m_exportTo: 
     m_variantName: 
   - m_assetDatabaseId: 83200c2d31438274980973e39425d1b5
     m_importFrom: Assets/Plugins/AssetBundleGraphTool/UnityEngine.AssetGraph/Cache/TemporalSettingFiles/AssetReferenceDB.asset
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 81f8c37a8f47043e38805704a6ec3ddf
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab1.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 19f57e0029ea04cd6abd8822afaf286f
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab6.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 3e4b6d8e4c5c248d78bd16d4c02de86e
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab11.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 524f1c27d255f4fef9e6f07acca90368
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab8.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 3245d7af5bbb64a3886f80ecaf7a1695
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab5.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 41187eac19641427a96518692c4df130
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab9.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 5de6bdf52977c4d50b72a81f214e3ab4
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab3.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: d428662756fe946788549345ab759642
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/MultipleNestedPrefab2.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 8db7078eb92fa4b18aa2b388fff19722
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/MultipleNestedPrefab1.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 82c521de7b47a4ce89bb1da3aa96e96f
-    m_importFrom: Assets/Plugins/UberLogger/UberAppConsole.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 80bf732fddced47d4b3e30bbc4509987
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/MultipleNestedPrefab4.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 8e197f339510d417b90e63ab73d56c00
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/MultipleNestedPrefab3.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 16e7bb59d1c3740c4bb7ab6ef576d43d
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab2.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 72b29aeeaed7c4b438342f207cc90987
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab7.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 19e5e5035cda54e0d9312d3fd707f1a7
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab4.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 2c6189a43319e4e728afaa9457b571d3
-    m_importFrom: Assets/Scripts/TIZSoftCommon/IntegrationTests/NestedPrefabTestAssets/NestedPrefab10.prefab
     m_exportTo: 
     m_variantName: 
   m_version: 2
