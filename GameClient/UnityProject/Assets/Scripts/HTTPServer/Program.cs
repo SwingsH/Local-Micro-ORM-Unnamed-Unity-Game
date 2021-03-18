@@ -9,17 +9,20 @@ using SimpleHTTPServer;
 using HttpServer;
 
 using UnityEngine;
+using System.Threading;
 
 namespace SimpleHTTPServer
 {
     public class Program : MonoBehaviour
     {
+        Thread serverThread;
         void Start()
         {
             ExampleServer server = new ExampleServer("127.0.0.1", 4050);
             server.SetRoot(@"Z:\unitywww\");
             server.Logger = new ConsoleLogger();
-            server.Start();
+            serverThread = new Thread( new ThreadStart(server.Start));
+            serverThread.Start();
         }
 
         void HTTPClient() // test conn
