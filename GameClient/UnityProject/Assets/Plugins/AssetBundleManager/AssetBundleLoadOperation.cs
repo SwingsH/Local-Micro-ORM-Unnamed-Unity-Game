@@ -98,7 +98,7 @@ namespace AssetBundles
                 return;
 
             var path = "res://" + assetBundleName;
-            var bundle = AssetBundle.CreateFromFile(path);
+            var bundle = AssetBundle.LoadFromFile(path);
             if (bundle == null)
             {
                 error = string.Format("Failed to load {0}", path);
@@ -129,7 +129,7 @@ namespace AssetBundles
             : base(assetBundleName)
         {
             var path = "res://" + assetBundleName;
-            var bundle = AssetBundle.CreateFromFile(path);
+            var bundle = AssetBundle.LoadFromFile(path);
             if (bundle == null)
                 error = string.Format("Failed to load {0}", path);
             else

@@ -13,12 +13,776 @@ MonoBehaviour:
   m_Name: AssetReferenceDB
   m_EditorClassIdentifier: 
   m_assets:
-  - m_assetDatabaseId: 0f9d84d73e508eb40ad9a31655738d63
-    m_importFrom: Assets/Scripts/SimpleHTTPServer/HttpServer.cs
+  - m_assetDatabaseId: 67877f7eb74ad8d4b82029c02555173b
+    m_importFrom: Assets/FairyGUI/Examples/Resources/Role/npc-with-hud.prefab
     m_exportTo: 
     m_variantName: 
   - m_assetDatabaseId: 83200c2d31438274980973e39425d1b5
     m_importFrom: Assets/Plugins/AssetBundleGraphTool/UnityEngine.AssetGraph/Cache/TemporalSettingFiles/AssetReferenceDB.asset
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 68d72a45afdec574ebc26e7de2c38330
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f68b22bb8f66f5c4885f9bd3c4fc43ed
+    m_importFrom: Assets/Plugins/UniTask/Runtime/TriggerEvent.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e606d38eed688574bb2ba89d983cc9bb
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Count.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7bf7759d03bf3f64190d3ae83b182c2c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/GroupJoin.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a2de80df1cc8a1240ab0ee7badd334d0
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/GroupBy.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8f09903be66e5d943b243d7c19cb3811
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Distinct.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a5b9231662e24c942b544bd85d4b39cb
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/Addressables
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4313cd8ecf705e44f9064ce46e293c2c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Return.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 930800098504c0d46958ce23a0495202
+    m_importFrom: Assets/Plugins/UniTask/Runtime/ExceptionExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: dd83c8e12dedf75409b829b93146d130
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Do.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4132ea600454134439fa2c7eb931b5e6
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.Threading.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: bd6beac8e0ebd264e9ba246c39429c72
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.Bridge.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5f39f495294d4604b8082202faf98554
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/Error.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b4f6f48a532188e4c80b7ebe69aea3a8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToObservable.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 40ef2e46f900131419e869398a8d3c9d
+    m_importFrom: Assets/Plugins/UniTask/Editor/SplitterGUILayout.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d6cad69921702d5488d96b5ef30df1b0
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskScheduler.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e9f28cd922179634d863011548f89ae7
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskVoid.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 6347ab34d2db6d744a654e8d62d96b96
+    m_importFrom: Assets/Plugins/UniTask/Runtime/TimeoutController.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 52e2d973a2156674e8c1c9433ed031f7
+    m_importFrom: Assets/Plugins/UniTask/Editor/UniTaskTrackerTreeView.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 03b109b1fe1f2df46aa56ffb26747654
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToDictionary.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 355997a305ba64248822eec34998a1a0
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAll.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 19f4e6575150765449cc99f25f06f25f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/TaskPool.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ff50260d74bd54c4b92cf99895549445
+    m_importFrom: Assets/Plugins/UniTask/Runtime/EnumerableAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 413883ceff8546143bdf200aafa4b8f7
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/OrderBy.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 090b20e3528552b4a8d751f7df525c2b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityBindingExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4e12b66d6b9bd7845b04a594cbe386b4
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.Factory.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f89da606bde9a4e4e94ae1189a029887
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/TextMeshPro
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 2c0c2bcee832c6641b25949c412f020f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/AsyncTriggerBase.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d81862f0eb12680479ccaaf2ac319d24
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SelectMany.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: dc68e598ca44a134b988dfaf5e53bfba
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Select.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 417946e97e9eed84db6f840f57037ca6
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/First.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 85c0c768ced512e42b24021b3258b669
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e51b78c06cb410f42b36e0af9de3b065
+    m_importFrom: Assets/Plugins/UniTask/Editor/EditorRunnerChecker.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: c835bd2dd8555234c8919c7b8ef3b69a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ElementAt.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 57da22563bcd6ca4aaf256d941de5cb0
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToLookup.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 593a5b492d29ac6448b1ebf7f035ef33
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/Addressables/UniTask.Addressables.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8ef320b87f537ee4fb2282e765dc6166
+    m_importFrom: Assets/Plugins/UniTask/Runtime/AsyncReactiveProperty.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 013a499e522703a42962a779b4d9850c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityWebRequestException.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4cc94a232b1c1154b8084bdda29c3484
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: cddbf051d2a88f549986c468b23214af
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Pairwise.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 6c78563864409714593226af59bcb6f3
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/WeakDictionary.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 6cb07f6e88287e34d9b9301a572284a5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/CombineLatest.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b6ba480edafb67d4e91bb10feb64fae5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/TextMeshPro/TextMeshProAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5ceb3107bbdd1f14eb39091273798360
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Channel.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 01d1404ca421466419a7db7340ff5e77
+    m_importFrom: Assets/Plugins/UniTask/Runtime/AsyncLazy.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3819a3925165a674d80ee848c8600379
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Repeat.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1f448d5bc5b232e4f98d89d5d1832e8e
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/DOTween/DOTweenAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f16fb466974ad034c8732c79c7fd67ea
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/ValueStopwatch.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: c32578978c37eaf41bdd90e1b034637d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAny.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 57095a17fdca7ee4380450910afc7f26
+    m_importFrom: Assets/Plugins/UniTask/Runtime/PlayerLoopTimer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 263479eb04c189741931fc0e2f615c2d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Subscribe.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3dc6441f9094f354b931dc3c79fb99e5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/Addressables/AddressablesAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 029c1c1b674aaae47a6841a0b89ad80e
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/DOTween/UniTask.DOTween.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 111ffe87a7d700442a9ef5af554b252c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/OfType.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 01ba1d3b17e13fb4c95740131c7e6e19
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/AsyncEnumeratorBase.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: bca55adabcc4b3141b50b8b09634f764
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/TakeWhile.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: edebeae8b61352b428abe9ce8f3fc71a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Cast.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1bcd3928b90472e43a3a92c3ba708967
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Single.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 2d6da02d9ab970e4999daf7147d98e36
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/MinMax.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f66c32454e50f2546b17deadc80a4c77
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/ContinuationQueue.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3e4d023d8404ab742b5e808c98097c3c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/IUniTaskSource.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8932579438742fa40b010edd412dbfba
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/PooledDelegate.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e3377e2ae934ed54fb8fd5388e2d9eb9
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Progress.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: bc661232f11e4a741af54ba1c175d5ee
+    m_importFrom: Assets/Plugins/UniTask/Runtime/EnumeratorAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 13d604ac281570c4eac9962429f19ca9
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAny.Generated.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 6804799fba2376d4099561d176101aff
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.uGUI.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 15fb5b85042f19640b973ce651795aca
+    m_importFrom: Assets/Plugins/UniTask/Runtime/PlayerLoopHelper.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 64b064347ca7a404494a996b072e2e29
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CompilerServices
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e82f498cf3a1df04cbf646773fc11319
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/TakeUntilCanceled.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 951310243334a3148a7872977cb31c5c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Buffer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7d63add489ccc99498114d79702b904d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/MinimumQueue.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 36ab06d30f3223048b4f676e05431a7f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Contains.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 12bda324162f15349afefc2c152ac07f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/TakeUntil.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: af97405af79afbb4e9f7f49f30088474
+    m_importFrom: Assets/Plugins/UniTask/Editor/PackageExporter.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5110117231c8a6d4095fd0cbd3f4c142
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAll.Generated.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 42f02cb84e5875b488304755d0e1383d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Take.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8947adf23181ff04db73829df217ca94
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d826418a813498648b10542d0a5fb173
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Range.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 2edd588bb09eb0a4695d039d6a1f02b2
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.MonoBehaviour.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f51ebe6a0ceec4240a699833d6309b23
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 57ac9da21d3457849a8e45548290a508
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Min.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e9147caba40da434da95b39709c13784
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.AssetBundleRequestAllAssets.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ed03524d09e7eb24a9fb9137198feb84
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskCompletionSource.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b382772aba6128842928cdb6b2e034b0
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SequenceEqual.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3268ec424b8055f45aa2a26d17c80468
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/AppendPrepend.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 340c6d420bb4f484aa8683415ea92571
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/PlayerLoopRunner.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 19e437c039ad7e1478dbce1779ef8660
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/DefaultIfEmpty.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8b307c3d3be71a94da251564bcdefa3d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Never.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: aa765154468d4b34eb34304100d39e64
+    m_importFrom: Assets/Plugins/UniTask/Runtime
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: de932d79c8d9f3841a066d05ff29edc9
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SkipUntil.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d7192de2a0581ec4db62962cc1404af5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToUniTaskAsyncEnumerable.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 98649642833cabf44a9dc060ce4c84a1
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CompilerServices/StateMachineRunner.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f80fb1c9ed4c99447be1b0a47a8d980b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/DiagnosticsExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 633f49a8aafb6fa43894cd4646c71743
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: acc1acff153e347418f0f30b1c535994
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Zip.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 38c1c4129f59dcb49a5b864eaf4ec63c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Except.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5dc68c05a4228c643937f6ebd185bcca
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Aggregate.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ae57a55bdeba98b4f8ff234d98d7dd76
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Union.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5bee3e3860e37484aa3b861bf76d129f
+    m_importFrom: Assets/Plugins/UniTask/Editor/UniTaskTrackerWindow.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 60cdf0bcaea36b444a7ae7263ae7598f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/StatePool.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4129704b5a1a13841ba16f230bf24a57
+    m_importFrom: Assets/Plugins/UniTask/Editor/UniTask.Editor.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 9d05a7d4f4161e549b4789e1022baae8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Throw.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: abf3aae9813db2849bce518f8596e920
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskSynchronizationContext.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 02ce354d37b10454e8376062f7cbe57a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CompilerServices/AsyncMethodBuilderAttribute.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 98f5fedb44749ab4688674d79126b46a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.AsyncGPUReadback.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: dc47925d1a5fa2946bdd37746b2b5d48
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/TextMeshPro/UniTask.TextMeshPro.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f83ebad81fb89fb4882331616ca6d248
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/ArrayPool.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 79f4f2475e0b2c44e97ed1dee760627b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/TextMeshPro/TextMeshProAsyncExtensions.InputField.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: df1d7f44d4fe7754f972c9e0b6fa72d5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SkipLast.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 510aa9fd35b45fc40bcdb7e59f01fd1b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/TakeLast.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4fa123ad6258abb4184721b719a13810
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Empty.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ef2840a2586894741a0ae211b8fd669b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/AsyncAwakeTrigger.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b4fd0f75e54ec3d4fbcb7fc65b11646b
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/AsyncStartTrigger.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7a3e552113af96e4986805ec3c4fc80a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToHashSet.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 30979a768fbd4b94f8694eee8a305c99
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.Jobs.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: eaea262a5ad393d419c15b3b2901d664
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskObservableExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ca8d7f8177ba16140920af405aea3fd4
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ForEach.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 05460c617dae1e440861a7438535389f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e891aaac17b933a47a9d7fa3b8e1226f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CompilerServices/AsyncUniTaskVoidMethodBuilder.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 87c9c533491903a4288536b5ac173db8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WaitUntil.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8473162fc285a5f44bcca90f7da073e7
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.Run.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4b1a778aef7150d47b93a49aa1bc34ae
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SkipUntilCanceled.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7cb9e19c449127a459851a135ce7d527
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Concat.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 669f5459819f7284ca1b35f4d55fe226
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/UnityExtensions
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4b4ff020f73dc6d4b8ebd4760d61fb43
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskExtensions.Shorthand.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 382caacde439855418709c641e4d7b04
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/UnityExtensions/Timer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8cc7fd65dd1433e419be4764aeb51391
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 0351f6767df7e644b935d4d599968162
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/DistinctUntilChanged.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 275b87293edc6634f9d72387851dbbdf
+    m_importFrom: Assets/Plugins/UniTask/Editor
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 0202f723469f93945afa063bfb440d15
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Create.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7271437e0033af2448b600ee248924dd
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/All.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 23146a82ec99f2542a87971c8d3d7988
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/ArrayUtil.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b20cf9f02ac585948a4372fa4ee06504
+    m_importFrom: Assets/Plugins/UniTask/Runtime/IUniTaskAsyncEnumerable.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4149754066a21a341be58c04357061f6
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Sum.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4f95ac245430d304bb5128d13b6becc8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/AsyncUnit.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 22d85d07f1e70ab42a7a4c25bd65e661
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CancellationTokenSourceExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ecff7972251de0848b2c0fa89bbd3489
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.Delay.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5c8a118a6b664c441820b8a87d7f6e28
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Max.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 93c684d1e88c09d4e89b79437d97b810
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Publish.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: dc4c5dc2a5f246e4f8df44cab735826c
+    m_importFrom: Assets/Plugins/UniTask/Runtime/MoveNextSource.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 0b74b9fe361bf7148b51a29c8b2561e8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/SkipWhile.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b2769e65c729b4f4ca6af9826d9c7b90
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Reverse.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 59b61dbea1562a84fb7a38ae0a0a0f88
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/AsyncTriggerExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4be7209f04146bd45ac5ee775a5f7c26
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CancellationTokenExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a0ccc93be1387fa4a975f06310127c11
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Last.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8507e97eb606fad4b99c6edf92e19cb8
+    m_importFrom: Assets/Plugins/UniTask/Runtime/_InternalVisibleTo.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: c30655636c35c3d4da44064af3d2d9a7
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/MonoBehaviourMessagesTriggers.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 5c01796d064528144a599661eaab93a6
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/UniTask.Linq.asmdef
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 69866e262589ea643bbc62a1d696077a
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/AsUniTaskAsyncEnumerable.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3859c1b31e81d9b44b282e7d97e11635
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToList.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 424cc208fb61d4e448b08fcfa0eee25e
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/ArrayPoolUtil.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a203c73eb4ccdbb44bddfd82d38fdda9
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/TaskTracker.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e2b2e65745263994fbe34f3e0ec8eb12
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Any.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: dc4ff8cb6d7c9a64896f2f082124d6b3
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Join.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 94975e4d4e0c0ea4ba787d3872ce9bb4
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/RuntimeHelpersAbstraction.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f4afdcb1cbadf954ba8b1cf465429e17
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/AsyncDestroyTrigger.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 9c46b6c7dce0cb049a73c81084c75154
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Skip.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: debb010bbb1622e43b94fe70ec0133dd
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/ToArray.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1ec39f1c41c305344854782c935ad354
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/UnityExtensions/EveryValueChanged.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d882a3238d9535e4e8ce1ad3291eb7fb
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Where.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 198b39e58ced3ab4f97ccbe0916787d5
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/LongCount.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4929ac1f6fcfe944a99529b6fb5bd9ef
+    m_importFrom: Assets/Plugins/UniTask
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 58499f95012fb3c47bb7bcbc5862e562
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Average.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: ebaaf14253c9cfb47b23283218ff9b67
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/UnityEqualityComparer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a3e874acee8398745b1dc3eddac09eaa
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 25cb2f742bfeb1d48a4e65d3140b955d
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/DOTween
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 111ba0e639de1d7428af6c823ead4918
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Internal/UnityWebRequestExtensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 00520eb52e49b5b4e8d9870d6ff1aced
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/UnityExtensions/EveryUpdate.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 93999a70f5d57134bbe971f3e988c4f2
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Intersect.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 7d739f510b125b74fa7290ac4335e46e
+    m_importFrom: Assets/Plugins/UniTask/Runtime/CancellationTokenEqualityComparer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b7ea1bcf9dbebb042bc99c7816249e02
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Queue.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 84bce45768c171d4490153eb08630a98
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Average.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b1053c85b3f0794488b10e6de53e9c02
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UnityAsyncExtensions.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 71c2c0bce7543454c8ef545083e18170
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAny.Generated.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 18108e9feb2ec40498df573cfef2ea15
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/MinMax.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b1b8cfa9d17af814a971ee2224aaaaa2
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/CombineLatest.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: d1a9a71f68bb0d04db91ddaa3329abf9
+    m_importFrom: Assets/Plugins/UniTask/package.json
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 2c2ecfd98ee1b9a4c9fae1b398c32d75
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTask.WhenAll.Generated.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: b61271ca8e712494ab1ce2d10b180b6f
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Linq/Sum.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: e9bb9fc551a975d44a7180e022a2debe
+    m_importFrom: Assets/Plugins/UniTask/Runtime/External/TextMeshPro/TextMeshProAsyncExtensions.InputField.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 9a75b5d7e55a5a34fb6476586df37c72
+    m_importFrom: Assets/Plugins/UniTask/Runtime/UniTaskExtensions.Shorthand.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 3ca26d0cd9373354c8cd147490f32c8e
+    m_importFrom: Assets/Plugins/UniTask/Runtime/Triggers/MonoBehaviourMessagesTriggers.tt
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8ab7190a2c557a14bb5a60bd718519ad
+    m_importFrom: Assets/Scripts/CrossCommon/ClientHTTPRequest.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 4a43e90e8eaef85429c2f32950779421
+    m_importFrom: Assets/Scripts/Server/UnityHTTPServer/UnityHTTPServer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: bab9f6683dcdaf94da5b73e3a71318bf
+    m_importFrom: Assets/Scripts/Server/HTTPServer/ExampleServer.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 52c750b8748d99f4cbb6adf95e4aa32c
+    m_importFrom: Assets/Scripts/CrossCommon/ClientHTTPManager.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 05a52e5cfed20a6419a2c2a74a532761
+    m_importFrom: Assets/Scripts/ProjectCommon/Services/HTTPRemoteService.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 56e5b89d97c5aca4ab79ebfcd9b2bf61
+    m_importFrom: Assets/Scripts/CrossCommon/PriorityQueue.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1a360cf841e3a47428615c16b9ae0db4
+    m_importFrom: Assets/Scripts/ProjectCommon/Services/ClientHttpRequestInfo.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: f4322700101c5a342a15ad1a7dad91ae
+    m_importFrom: Assets/Scripts/CrossCommon/Extensions.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1de87f7c87c94154d822a40b3ea1a875
+    m_importFrom: Assets/Scripts/Client/ClientCustomHeader.cs
     m_exportTo: 
     m_variantName: 
   m_version: 2
