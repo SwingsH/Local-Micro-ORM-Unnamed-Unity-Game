@@ -13,7 +13,7 @@ namespace Tizsoft.Net
         readonly Dictionary<ServerType, string> serverIds = new Dictionary<ServerType, string>();
 
         /// <summary>
-        /// ¨ú±o API «eºó¡Ce.g. "/account/create"¡Aaccount §Y¬°«eºó¡C
+        /// å–å¾— API å‰ç¶´ã€‚e.g. "/account/create"ï¼Œaccount å³ç‚ºå‰ç¶´ã€‚
         /// </summary>
         protected string Prefix { get; private set; }
 

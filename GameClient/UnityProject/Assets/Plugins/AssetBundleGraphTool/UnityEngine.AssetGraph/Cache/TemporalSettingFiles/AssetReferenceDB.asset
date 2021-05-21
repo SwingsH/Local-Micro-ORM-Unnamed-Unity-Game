@@ -13,14 +13,6 @@ MonoBehaviour:
   m_Name: AssetReferenceDB
   m_EditorClassIdentifier: 
   m_assets:
-  - m_assetDatabaseId: 5da5d424645e3534aabc3d9f123150f7
-    m_importFrom: Assets/Scripts/Framework/Extensions/IDisposableExtensions.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 83200c2d31438274980973e39425d1b5
-    m_importFrom: Assets/Plugins/AssetBundleGraphTool/UnityEngine.AssetGraph/Cache/TemporalSettingFiles/AssetReferenceDB.asset
-    m_exportTo: 
-    m_variantName: 
   - m_assetDatabaseId: 82c521de7b47a4ce89bb1da3aa96e96f
     m_importFrom: Assets/Plugins/UberLogger/UberAppConsole.prefab
     m_exportTo: 
@@ -29,80 +21,8 @@ MonoBehaviour:
     m_importFrom: Assets/FairyGUI/Examples/Resources/Role/npc-with-hud.prefab
     m_exportTo: 
     m_variantName: 
-  - m_assetDatabaseId: 45218bc579f53cd4bb9398a8d2ae6bb4
-    m_importFrom: Assets/Scripts/Framework
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: dca32efd7f6662245a68fd755302ceeb
-    m_importFrom: Assets/Scripts/Framework/Repository
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 7b3745d07b32f6b4eb323c97eeac613b
-    m_importFrom: Assets/Scripts/Framework/UnityHTTPServer
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: e242a1f671956e6449b6adff363bcadd
-    m_importFrom: Assets/Scripts/Framework/RemoteLogger
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 69bfbe6941a549543831a961ae984a96
-    m_importFrom: Assets/Scripts/Framework/Extensions
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 5fc48a76c6c6fa94da787708eeea5e7c
-    m_importFrom: Assets/Scripts/Framework/Log
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 710201b713a658449998d71dd9d910a0
-    m_importFrom: Assets/Scripts/Framework/Deployment
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 648461c9256e6f242acff71dd1fd046f
-    m_importFrom: Assets/Scripts/Framework/UnityHTTPClient
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 63fa7c84cb2084c44b1f8c172c628dc3
-    m_importFrom: Assets/Scripts/Framework/Services
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 38afbe52395684641aaa20f1997fcade
-    m_importFrom: Assets/Scripts/Framework/Utils
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: d0d3be2adce6c4ef5a6c5c87c9b8609c
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/AssetManager.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: e5e53aa5a5e994c34b5398f27907f28b
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/FinishedAssetLoadingOperation.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: e38958cfb2ca04ed1a30ba3a55b94283
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/PreloadAssetLoadingOperation.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: e9262d9d81e43ab4aba5f32c5d018cbc
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/AssetBundleUpdater.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: bdc79c758705a48bba60fe48efa46267
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/IAssetManager.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: fcd394793888749418e66c861d21d150
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/AssetLoadingOperation.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 75c17bc2560c49ae8deb95b1c909f168
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/AssetSettings.cs
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: da0ab7a1f81a99044ad8d5f8c74f9834
-    m_importFrom: Assets/Scripts/Framework/AssetManagement
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: ccb31c4658cbf4b0eb78fb5b07444438
-    m_importFrom: Assets/Scripts/Framework/AssetManagement/AssetProvider.cs
+  - m_assetDatabaseId: c976469c8cc1ff9419b5079be0ca6be7
+    m_importFrom: Assets/Scenes/Test/TestService.cs
     m_exportTo: 
     m_variantName: 
   m_version: 2
