@@ -1,7 +1,7 @@
 ﻿using System;
-using Tizsoft.Log;
+using TIZSoft.Log;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class IDisposableExtensions
     {

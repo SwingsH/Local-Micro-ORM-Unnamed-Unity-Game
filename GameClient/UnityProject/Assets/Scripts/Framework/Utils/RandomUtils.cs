@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Tizsoft.Extensions;
+using TIZSoft.Extensions;
 using Random = UnityEngine.Random;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     /// <summary>
     /// 提供隨機、亂數相關工具方法。

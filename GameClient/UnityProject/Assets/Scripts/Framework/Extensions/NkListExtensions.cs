@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     /// <summary>
     /// Nick 20171016

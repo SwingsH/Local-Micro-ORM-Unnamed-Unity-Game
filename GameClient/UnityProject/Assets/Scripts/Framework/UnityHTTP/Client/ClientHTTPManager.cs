@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading;
 using UnityEngine.Networking;
 using Cysharp.Threading.Tasks;
+using TIZSoft.Extensions;
 
+namespace TIZSoft.UnityHTTP.Client
+{
     public class HttpEventArgs
     {
         public ClientHttpManager Sender { get; private set; }
@@ -33,7 +36,7 @@ using Cysharp.Threading.Tasks;
     }
 
     /// <summary>
-    /// ªí¥Ü¤@­Ó HTTP manager¡A´£¨Ñ Unity-based ªº HTTP °òÂ¦³q°T¹ê§@¡C
+    /// è¡¨ç¤ºä¸€å€‹ HTTP managerï¼Œæä¾› Unity-based çš„ HTTP åŸºç¤é€šè¨Šå¯¦ä½œã€‚
     /// </summary>
     public class ClientHttpManager
     {
@@ -86,12 +89,15 @@ using Cysharp.Threading.Tasks;
         {
             string uri = BuildUri(requestInfo.Host, requestInfo.Path, requestInfo.Query);
             DownloadHandlerBuffer uDownloadHandler = new DownloadHandlerBuffer();
-            UnityWebRequest uWebRequest = new UnityWebRequest(uri, requestInfo.HttpMethod){
+            UnityWebRequest uWebRequest = new UnityWebRequest(uri, requestInfo.HttpMethod)
+            {
                 downloadHandler = uDownloadHandler,
             };
 
-            if (requestInfo.RequestData != null && requestInfo.RequestData.Length > 0){
-                uWebRequest.uploadHandler = new UploadHandlerRaw(requestInfo.RequestData){
+            if (requestInfo.RequestData != null && requestInfo.RequestData.Length > 0)
+            {
+                uWebRequest.uploadHandler = new UploadHandlerRaw(requestInfo.RequestData)
+                {
                     contentType = requestInfo.ContentType
                 };
             }
@@ -107,55 +113,56 @@ using Cysharp.Threading.Tasks;
             return httpRequest;
         }
 
-    private async UniTask DoRequest()
-    {
-        if (queue.Count == 0) {
-            return;
-        }
-
-        ClientHttpRequest httpRequest = queue.Dequeue();
-        UnityWebRequest uWebRequest = httpRequest.WebRequest;
-        UnityWebRequestAsyncOperation requestAyncOp = uWebRequest.SendWebRequest();
-        float progress = -1F;
-
-        while (!requestAyncOp.isDone)
+        private async UniTask DoRequest()
         {
-            if (progress < requestAyncOp.progress)
+            if (queue.Count == 0)
             {
-                progress = requestAyncOp.progress;
-                OnProgressUpdated(httpRequest, progress);
+                return;
             }
 
-            try
+            ClientHttpRequest httpRequest = queue.Dequeue();
+            UnityWebRequest uWebRequest = httpRequest.WebRequest;
+            UnityWebRequestAsyncOperation requestAyncOp = uWebRequest.SendWebRequest();
+            float progress = -1F;
+
+            while (!requestAyncOp.isDone)
             {
-                httpRequest.OnProgressUpdated.Invoke(httpRequest, requestAyncOp.progress);
+                if (progress < requestAyncOp.progress)
+                {
+                    progress = requestAyncOp.progress;
+                    OnProgressUpdated(httpRequest, progress);
+                }
+
+                try
+                {
+                    httpRequest.OnProgressUpdated.Invoke(httpRequest, requestAyncOp.progress);
+                }
+                catch (Exception e)
+                {
+                    //logger.Error(e);
+                }
+                await UniTask.Yield();
             }
-            catch (Exception e)
+
+            progress = requestAyncOp.progress;
+            OnProgressUpdated(httpRequest, progress);
+
+            if (httpRequest.OnResponded != null)
             {
-                //logger.Error(e);
+                try
+                {
+                    httpRequest.OnResponded.Invoke(httpRequest);
+                }
+                catch (Exception e)
+                {
+                    //logger.Error(e, "Catch an exception from OnResponded. URI={0}", httpRequest.Uri);
+                }
             }
-            await UniTask.Yield();
+
+            OnResponded(httpRequest);
         }
 
-        progress = requestAyncOp.progress;
-        OnProgressUpdated(httpRequest, progress);
-
-        if (httpRequest.OnResponded != null)
-        {
-            try
-            {
-                httpRequest.OnResponded.Invoke(httpRequest);
-            }
-            catch (Exception e)
-            {
-                //logger.Error(e, "Catch an exception from OnResponded. URI={0}", httpRequest.Uri);
-            }
-        }
-
-        OnResponded(httpRequest);
-    }
-
-    void OnResponded(ClientHttpRequest request)
+        void OnResponded(ClientHttpRequest request)
         {
             try
             {
@@ -200,35 +207,42 @@ using Cysharp.Threading.Tasks;
             }
         }
 
-    public static string BuildUri(string host, string path, string query = null)
-    {
-        if (string.IsNullOrEmpty(host) && string.IsNullOrEmpty(path)){
-            return "/";
-        }
+        public static string BuildUri(string host, string path, string query = null)
+        {
+            if (string.IsNullOrEmpty(host) && string.IsNullOrEmpty(path))
+            {
+                return "/";
+            }
 
-        if (string.IsNullOrEmpty(host)){
-            return path.StartsWith("/") ? path : string.Concat("/", path);
-        }
+            if (string.IsNullOrEmpty(host))
+            {
+                return path.StartsWith("/") ? path : string.Concat("/", path);
+            }
 
-        if (string.IsNullOrEmpty(path)){
-            return host.EndsWith("/") ? host : string.Concat(host, "/");
-        }
+            if (string.IsNullOrEmpty(path))
+            {
+                return host.EndsWith("/") ? host : string.Concat(host, "/");
+            }
 
-        if (host.EndsWith("/") && path.StartsWith("/")){
-            host = host.Remove(host.Length - 2, 1);
-        }
-        else if (!host.EndsWith("/") && !path.StartsWith("/")){
-            path = string.Concat("/", path);
-        }
+            if (host.EndsWith("/") && path.StartsWith("/"))
+            {
+                host = host.Remove(host.Length - 2, 1);
+            }
+            else if (!host.EndsWith("/") && !path.StartsWith("/"))
+            {
+                path = string.Concat("/", path);
+            }
 
-        var uri = string.Concat(host, path);
+            var uri = string.Concat(host, path);
 
-        if (!string.IsNullOrEmpty(query)){
-            uri = query.StartsWith("?")
-                ? string.Concat(uri, query)
-                : string.Concat(uri, "?", query);
+            if (!string.IsNullOrEmpty(query))
+            {
+                uri = query.StartsWith("?")
+                    ? string.Concat(uri, query)
+                    : string.Concat(uri, "?", query);
+            }
+
+            return uri;
         }
-
-        return uri;
     }
 }

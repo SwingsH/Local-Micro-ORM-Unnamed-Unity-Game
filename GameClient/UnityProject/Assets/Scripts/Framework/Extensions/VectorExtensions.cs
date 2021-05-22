@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     /// <summary>
     /// Unity <see cref="Vector3"/> 擴充方法。

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class AnimatorExtensions
     {

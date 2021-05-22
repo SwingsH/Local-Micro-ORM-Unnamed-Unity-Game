@@ -13,16 +13,40 @@ MonoBehaviour:
   m_Name: AssetReferenceDB
   m_EditorClassIdentifier: 
   m_assets:
-  - m_assetDatabaseId: 82c521de7b47a4ce89bb1da3aa96e96f
-    m_importFrom: Assets/Plugins/UberLogger/UberAppConsole.prefab
-    m_exportTo: 
-    m_variantName: 
-  - m_assetDatabaseId: 67877f7eb74ad8d4b82029c02555173b
-    m_importFrom: Assets/FairyGUI/Examples/Resources/Role/npc-with-hud.prefab
-    m_exportTo: 
-    m_variantName: 
   - m_assetDatabaseId: c976469c8cc1ff9419b5079be0ca6be7
     m_importFrom: Assets/Scenes/Test/TestService.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a2fe763f5b350a7448eb8aaf8a5fc5b5
+    m_importFrom: Assets/Scripts/Common/GameServices.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: c6b70925ac88856488b6d19b0ca79d52
+    m_importFrom: Assets/Scripts/Framework/Services/ServiceInterface.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: a6e2a36c37c5ad249aaf9de9722da32c
+    m_importFrom: Assets/Scripts/Framework/Services/ServiceResponse.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 9b6e26f829993ce4b8954c6fa500d19f
+    m_importFrom: Assets/Scripts/Framework/Services/ServicesController.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 6b14b68a41dc4ec4eba7fe3510f6e0f6
+    m_importFrom: Assets/Scripts/Framework/Services/ServiceBase.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 1a360cf841e3a47428615c16b9ae0db4
+    m_importFrom: Assets/Scripts/Framework/UnityHTTP/Client/ClientHttpRequestInfo.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 8ab7190a2c557a14bb5a60bd718519ad
+    m_importFrom: Assets/Scripts/Framework/UnityHTTP/Client/ClientHTTPRequest.cs
+    m_exportTo: 
+    m_variantName: 
+  - m_assetDatabaseId: 05a52e5cfed20a6419a2c2a74a532761
+    m_importFrom: Assets/Scripts/Framework/Services/HTTPRemoteService.cs
     m_exportTo: 
     m_variantName: 
   m_version: 2

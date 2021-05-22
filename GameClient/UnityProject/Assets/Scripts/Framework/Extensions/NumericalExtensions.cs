@@ -1,4 +1,4 @@
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class NumericalExtensions
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class CameraExtensions
     {

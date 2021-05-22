@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     // TODO: Unit test required.
 

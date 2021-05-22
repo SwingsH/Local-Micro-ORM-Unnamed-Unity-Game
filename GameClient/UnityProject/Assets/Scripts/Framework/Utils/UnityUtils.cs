@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     using SceneManager = UnityEngine.SceneManagement.SceneManager;
 

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     /// <summary>
     /// 路徑工具方法。

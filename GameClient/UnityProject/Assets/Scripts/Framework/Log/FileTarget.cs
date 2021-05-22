@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UberLogger;
 
-namespace Tizsoft.Log
+namespace TIZSoft.Log
 {
     /// <summary>
     /// 檔案輸出實作，基於 UberLogger。

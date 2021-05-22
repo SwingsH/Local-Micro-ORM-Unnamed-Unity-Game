@@ -1,4 +1,4 @@
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
 	public static class UriUtils
 	{

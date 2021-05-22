@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Text;
 
-namespace Tizsoft.Log
+namespace TIZSoft.Log
 {
     /// <summary>
     /// 表示一筆事件訊息。

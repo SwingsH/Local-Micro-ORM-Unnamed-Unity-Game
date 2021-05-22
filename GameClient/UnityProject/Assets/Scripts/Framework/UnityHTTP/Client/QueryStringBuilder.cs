@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Tizsoft.Net
+namespace TIZSoft.UnityHTTP.Client
 {
     /// <summary>
     /// URL 查詢字串（或參數字串）建構工具類別。

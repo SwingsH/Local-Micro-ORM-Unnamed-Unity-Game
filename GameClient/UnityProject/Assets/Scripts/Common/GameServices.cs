@@ -3,19 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UniRx;
-using Tizsoft.Net;
-using Tizsoft.Utils;
+using TIZSoft.UnityHTTP;
+using TIZSoft.UnityHTTP.Client;
 
-namespace Tizsoft.Net
+namespace TIZSoft.Services
 {
     public class GameServices
     {
         readonly Dictionary<ServerType, string> serverIds = new Dictionary<ServerType, string>();
 
-        /// <summary>
-        /// 取得 API 前綴。e.g. "/account/create"，account 即為前綴。
-        /// </summary>
-        protected string Prefix { get; private set; }
+        protected string Prefix { get; private set; } //e.g. "/projectname/account/create"，projectname is Prefix
 
         protected ClientWebServices WebService { get; private set; }
 
@@ -42,6 +39,33 @@ namespace Tizsoft.Net
                 serverIds[e.ServerType] = serverId;
                 WebService.HostManager.SetHost(serverId, e.ServerUrl);
             });
+        }
+
+        public void CallAPI<T>(API_METHOD method, T request, Action<ClientHttpRequest> response) where T : APIRequest
+        {
+            switch (method)
+            {
+                case API_METHOD.HTTP_GET:
+                    string apiURL = request.partialURL;
+                    Get(ServerType.GameHost, apiURL, this.WebService, response);
+                    break;
+                case API_METHOD.HTTP_PUT:
+                    break;
+                case API_METHOD.HTTP_HEAD:
+                    break;
+                case API_METHOD.HTTP_POST:
+                    break;
+                case API_METHOD.HTTP_CREATE:
+                    break;
+                case API_METHOD.HTTP_DELETE:
+                    break;
+                case API_METHOD.HTTP_PATCH:
+                    break;
+                case API_METHOD.UNET:
+                    break;
+                default:
+                    break;
+            }
         }
 
         string FindServerId(ServerType serverType)

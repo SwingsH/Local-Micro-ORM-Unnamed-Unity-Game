@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class LinkedListNodeExtensions
     {

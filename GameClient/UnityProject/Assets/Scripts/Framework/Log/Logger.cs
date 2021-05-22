@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UberLogger;
 
-namespace Tizsoft.Log
+namespace TIZSoft.Log
 {
     /// <summary>
     /// Log 工具方法集合，方便 log 用。

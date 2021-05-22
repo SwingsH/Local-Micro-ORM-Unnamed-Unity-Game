@@ -1,10 +1,10 @@
 using System;
 using UnityEngine.Networking;
 
-namespace Tizsoft.Net
+namespace TIZSoft.UnityHTTP.Client
 {
     /// <summary>
-    /// ªí¥Ü¤@­Ó Web Service¡A´£¨Ñ°òÂ¦ HTTP ³q°T¹ê§@¡C
+    /// è¡¨ç¤ºä¸€å€‹ Web Serviceï¼Œæä¾›åŸºç¤ HTTP é€šè¨Šå¯¦ä½œã€‚
     /// </summary>
     public class ClientWebServices
     {
@@ -227,4 +227,16 @@ public static class HttpMethod
     public const string Create = UnityWebRequest.kHttpVerbCREATE;
     public const string Delete = UnityWebRequest.kHttpVerbDELETE;
     public const string Patch = "PATCH";
+}
+
+public enum API_METHOD
+{
+    HTTP_GET,
+    HTTP_PUT,
+    HTTP_HEAD,
+    HTTP_POST,
+    HTTP_CREATE,
+    HTTP_DELETE,
+    HTTP_PATCH,
+    UNET
 }

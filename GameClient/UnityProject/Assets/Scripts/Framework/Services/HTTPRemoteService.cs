@@ -1,5 +1,5 @@
 using System;
-using UnityHTTPServer;
+using TIZSoft.UnityHTTP.Client;
 
 public class HTTPRemoteService
 {

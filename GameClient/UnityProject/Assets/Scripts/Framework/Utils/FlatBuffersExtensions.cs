@@ -1,7 +1,7 @@
 ﻿using System;
 using FlatBuffers;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
 	/// <summary>
     /// 提供 FlatBuffers 擴充方法。

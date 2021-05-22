@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     /// <summary>
     /// 定義 Transform 搜尋選項。

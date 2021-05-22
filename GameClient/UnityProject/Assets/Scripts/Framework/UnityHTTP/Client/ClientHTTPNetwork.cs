@@ -1,9 +1,9 @@
 ﻿using System;
-using Tizsoft.Utils;
+using TIZSoft.Utils;
 using UniRx;
 using UnityEngine;
 
-namespace Tizsoft.Net
+namespace TIZSoft.UnityHTTP.Client
 {
     using ServerNode = ReactiveCollection<string>;
     using ServerGroup = ReactiveDictionary<ServerType, ReactiveCollection<string>>;

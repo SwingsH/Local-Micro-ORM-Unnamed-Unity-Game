@@ -1,4 +1,4 @@
-namespace Tizsoft.Log
+namespace TIZSoft.Log
 {
     public enum LogLevel
     {

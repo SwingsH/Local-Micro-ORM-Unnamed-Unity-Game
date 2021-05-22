@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Tizsoft.Net;
+using TIZSoft.Services;
+using TIZSoft.UnityHTTP.Client;
 
 public class TestService : MonoBehaviour
 {
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +22,16 @@ public class TestService : MonoBehaviour
 
         //hostManager.AddHost("suck_hostid", "http://127.0.0.1");
         ClientHTTPNetwork clientHTTPNetwork = new ClientHTTPNetwork();
-        TempService tempService = new TempService(webService, "usertest", clientHTTPNetwork);
+        GameServices tempService = new GameServices(webService, "projectname", clientHTTPNetwork);
 
         clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://localhost");
 
-        tempService.GetUser("wahaha");
+        tempService.CallAPI<UserRequest>( API_METHOD.HTTP_GET, new UserRequest { m=1 }, OnResponse);
+    }
+
+    public void OnResponse(ClientHttpRequest request)
+    {
+        Debug.Log("request");
     }
 
     // Update is called once per frame
@@ -36,37 +40,3 @@ public class TestService : MonoBehaviour
         
     }
 }
-
-public class TempService : GameServices
-{
-    public void GetUser(string name)
-    {
-        Get(ServerType.GameHost, "user", this.WebService, OnResponse);
-    }
-    public TempService(ClientWebServices webService, string prefix, ClientHTTPNetwork network): base(webService, prefix, network)
-    {
-        
-    }
-
-    public void OnResponse(ClientHttpRequest request)
-    {
-        Debug.Log("request");
-    }
-}
-
-/*
- * {
-  "HttpManager": {
-    "RequestQueueCount": 0,
-    "SendingRequestCount": 0,
-    "TotalRequestCount": 0,
-    "RequestCustomHeaders": null
-  },
-  "HostManager": {
-    "CurrentHostId": "1",
-    "CurrentHost": "http://app.domain.com",
-    "Count": 1
-  }
-}
-*/
-

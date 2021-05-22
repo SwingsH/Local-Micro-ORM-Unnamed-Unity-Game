@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tizsoft.Extensions;
+using TIZSoft.Extensions;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     /// <summary>
     /// Exception utilities.

@@ -1,22 +1,19 @@
-﻿
-//[EntryPoint("/ajax/user/my")]
-public class UserRequest //: Api
+﻿using TIZSoft.UnityHTTP;
+
+[EntryPoint("/user/my")]
+public class UserRequest : APIRequest
 {
-	/// <summary>
-	/// （1:取得）
-	/// </summary>
-	public byte m { get; set; }
+	public byte m { get; set; } //( 1: get my userinfo)
 }
 
-
-//[EntryPoint("/ajax/user/change-name")]
-public class UserNameChangeRequest //: Api
+[EntryPoint("/user/change-name")]
+public class UserNameChangeRequest : APIRequest
 {
 	public string name { get; set; }
 }
 
-//[EntryPoint("/ajax/user/change-team")]
-public class UserTeamChangeRequest //: Api
+[EntryPoint("/user/change-team")]
+public class UserTeamChangeRequest : APIRequest
 {
 	public byte teamId { get; set; }
 }

@@ -1,7 +1,7 @@
-﻿using Tizsoft.Utils;
+﻿using TIZSoft.Utils;
 using UnityEngine;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     /// <summary>
     /// 提供 <see cref="UnityEngine.Component"/> 擴充方法。

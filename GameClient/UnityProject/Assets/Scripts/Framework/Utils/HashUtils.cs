@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     /// <summary>
     /// 提供常用的雜湊方法。

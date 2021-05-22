@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class ActionExtensions
     {

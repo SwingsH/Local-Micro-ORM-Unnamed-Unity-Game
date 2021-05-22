@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Tizsoft.Extensions
+namespace TIZSoft.Extensions
 {
     public static class StringExtensions
     {

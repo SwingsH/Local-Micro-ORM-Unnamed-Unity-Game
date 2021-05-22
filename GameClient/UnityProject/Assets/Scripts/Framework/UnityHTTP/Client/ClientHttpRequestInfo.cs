@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityHTTPServer;
 
+namespace TIZSoft.UnityHTTP.Client
+{
     public class ClientHttpRequestInfo
     {
         public string Host { get; set; }
@@ -15,3 +17,4 @@ using UnityHTTPServer;
         public IEnumerable<KeyValuePair<string, string>> ExtraHeaders { get; set; }
         public string Query { get; set; }
     }
+}

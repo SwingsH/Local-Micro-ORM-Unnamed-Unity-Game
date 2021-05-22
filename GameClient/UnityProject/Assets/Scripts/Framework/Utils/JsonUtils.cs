@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Tizsoft.Utils
+namespace TIZSoft.Utils
 {
     /// <summary>
     /// 提供 JSON 工具方法。
