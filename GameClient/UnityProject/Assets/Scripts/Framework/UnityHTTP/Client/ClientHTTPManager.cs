@@ -226,7 +226,7 @@ namespace TIZSoft.UnityHTTP.Client
 
             if (host.EndsWith("/") && path.StartsWith("/"))
             {
-                host = host.Remove(host.Length - 2, 1);
+                host = host.Remove(host.Length - 1, 1);
             }
             else if (!host.EndsWith("/") && !path.StartsWith("/"))
             {

@@ -20,11 +20,10 @@ public class TestService : MonoBehaviour
         ClientHostManager hostManager = new ClientHostManager(settings);
         ClientWebServices webService = new ClientWebServices(httpManager, hostManager);
 
-        //hostManager.AddHost("suck_hostid", "http://127.0.0.1");
         ClientHTTPNetwork clientHTTPNetwork = new ClientHTTPNetwork();
-        GameServices tempService = new GameServices(webService, "projectname", clientHTTPNetwork);
+        GameServices tempService = new GameServices(webService, "volleyballjr", clientHTTPNetwork);
 
-        clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://localhost");
+        clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://127.0.0.1/");
 
         tempService.CallAPI<UserRequest>( API_METHOD.HTTP_GET, new UserRequest { m=1 }, OnResponse);
     }
