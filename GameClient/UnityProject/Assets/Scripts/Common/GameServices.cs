@@ -273,6 +273,7 @@ namespace TIZSoft.Services
             catch (Exception e)
             {
                 //logger.Error(e, "API={0}, HTTPMethod={1}", fullApi, httpMethod);
+                UberDebug.Log(e.ToString());
                 throw;
             }
         }

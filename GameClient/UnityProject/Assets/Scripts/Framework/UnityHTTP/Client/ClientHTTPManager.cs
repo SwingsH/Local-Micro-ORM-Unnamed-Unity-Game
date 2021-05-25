@@ -179,14 +179,14 @@ namespace TIZSoft.UnityHTTP.Client
             try
             {
                 //logger.Debug("Sending \"{0}\"...{1:P2}", request.Uri, progress);
-                try
-                {
+                //try
+                //{
                     request.OnProgressUpdated.Invoke(request, progress);
-                }
-                catch (Exception e)
-                {
+                //}
+               // catch (Exception e)
+                //{
                     //logger.Error(e, " at request.OnProgressUpdate.Raise()");
-                }
+                //}
                 //progressUpdated.OnNext(new HttpEventArgs(this, request, progress));
             }
             catch (Exception e)
