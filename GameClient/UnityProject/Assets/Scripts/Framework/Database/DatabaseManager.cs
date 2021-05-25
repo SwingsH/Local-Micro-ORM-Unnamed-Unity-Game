@@ -69,15 +69,9 @@ namespace TIZSoft.Database
 			this.InvokeInstanceDevExtMethods(nameof(SavePlayers), online);
     	}
 
-		// Awake
-		// Sets the singleton on awake, database can be accessed from anywhere by using it
-		// also calls "Init" on database and the databaseLayer to create database and 
-		// open connection if
-		// that is required
-
 		public override void Awake()
 		{
-			base.Awake(); // required
+			base.Awake();
 			singleton = this;
 
 #if _SERVER
@@ -85,11 +79,6 @@ namespace TIZSoft.Database
 #endif
 
 		}
-
-
-		// Init
-		// creates/connects to the database and creates all tables
-		// for a multiplayer server based game, this should only be called on the server
 
 		public void Init()
 		{
@@ -109,12 +98,6 @@ namespace TIZSoft.Database
 			this.InvokeInstanceDevExtMethods(nameof(Init));
 
 		}
-
-
-		// Destruct
-		// closes the connection, cancels saving and updates the checksum (if required),
-		// saves all online players and sets them offline.
-		// for a multiplayer server based game, this should only be called on the server
 
 		public void Destruct()
 		{

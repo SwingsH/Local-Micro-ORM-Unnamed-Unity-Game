@@ -8,10 +8,6 @@ using System.Diagnostics;
 
 namespace TIZSoft.DebugManager
 {
-	
-	// ===================================================================================
-	// DebugProfile
-	// ===================================================================================
 	public partial class DebugProfile
 	{
 		
@@ -23,17 +19,11 @@ namespace TIZSoft.DebugManager
 		
 		protected bool active;
 		
-		
-		// DebugProfile (Constructor)
-		
 		public DebugProfile(string _name)
 		{
 			name = _name;
 			Restart();
 		}
-		
-		
-		// Stop
 		
 		public void Stop()
 		{
@@ -43,18 +33,12 @@ namespace TIZSoft.DebugManager
 			active = false;
 		}
 		
-		
-		// Restart
-		
 		public void Restart()
 		{
 			lastOperation = 0;
 			stopWatch.Stop();
 			Start();
 		}
-		
-		
-		// Reset
 		
 		public void Reset(string _name="")
 		{
@@ -67,9 +51,6 @@ namespace TIZSoft.DebugManager
 			stopWatch.Stop();
 		}
 		
-		
-		// Print
-		
 		public string Print
 		{
 			get
@@ -79,27 +60,18 @@ namespace TIZSoft.DebugManager
 			}
 		}
 		
-		
-		// Start
-		
 		protected void Start()
 		{
 			stopWatch.Start();
 			active = true;
 		}
 		
-		
-		// CheckActive
-		
 		protected void CheckActive()
 		{
 			if (active)
 				Stop();
 		}
-		
-		
-		// GetAverage
-		
+
 		protected long GetAverage
 		{
 			get {
@@ -110,11 +82,5 @@ namespace TIZSoft.DebugManager
 				return average;
 			}
 		}
-		
-		
-
 	}
-
 }
-
-// =======================================================================================

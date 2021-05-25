@@ -8,65 +8,35 @@ using System.Linq;
 
 namespace TIZSoft.DebugManager
 {
-	
-	// ===================================================================================
-	// DebugHelper
-	// ===================================================================================
 	[System.Serializable]
 	public partial class DebugHelper
 	{
-		
 		public bool debugMode;
-		
 		protected List<DebugProfile> debugProfiles = new List<DebugProfile>();
-		
-		
-		// Init (Constructor)
-		
+				
 		public void Init()
 		{
 			if (!debugMode)
 				debugMode = true;
 		}
-		
-		// ======================= PUBLIC METHODS - DEBUG ================================
-		
-		
-		// Log
-		// @debugMode
-		
+
 		public void Log(string message)
 		{
 			if (debugMode)
 				UnityEngine.Debug.Log(message);
 		}
-		
-		
-		// LogWarning
-		// @debugMode
-		
+
 		public void LogWarning(string message)
 		{
 			if (debugMode)
 				UnityEngine.Debug.LogWarning(message);
 		}
 		
-		
-		// LogError
-		// @debugMode
-		
 		public void LogError(string message)
 		{
 			if (debugMode)
 				UnityEngine.Debug.LogError(message);
 		}
-		
-		
-		
-		// ===================== PUBLIC METHODS - PROFILING ==============================
-		
-		
-		// StartProfile
 		
 		public void StartProfile(string name)
 		{
@@ -79,9 +49,6 @@ namespace TIZSoft.DebugManager
 				AddProfile(name);
 		}
 		
-		
-		// StopProfile
-		
 		public void StopProfile(string name)
 		{
 			if (!debugMode)
@@ -91,9 +58,6 @@ namespace TIZSoft.DebugManager
 			if (index != -1)
 				debugProfiles[index].Stop();
 		}
-		
-		
-		// PrintProfile
 		
 		public void PrintProfile(string name)
 		{
@@ -105,9 +69,6 @@ namespace TIZSoft.DebugManager
 				Log(debugProfiles[index].Print);
 		}
 		
-		
-		// Reset
-		
 		public void Reset()
 		{
 			if (!debugMode)
@@ -117,32 +78,20 @@ namespace TIZSoft.DebugManager
 				profile.Reset();
 		}
 		
-		
-		// HasProfile
-		
 		protected bool HasProfile(string _name)
 		{
 			return debugProfiles.Any(x => x.name == _name);
 		}
-		
-		
-		// GetProfileIndex
 		
 		protected int GetProfileIndex(string _name)
 		{
 			return debugProfiles.FindIndex(x => x.name == _name);
 		}
 		
-		
-		// AddProfile
-		
 		protected void AddProfile(string name)
 		{
 			debugProfiles.Add(new DebugProfile(name));
 		}
-		
-		
-		// RestartProfile
 		
 		protected void RestartProfile(string name)
 		{
@@ -150,13 +99,5 @@ namespace TIZSoft.DebugManager
 			if (index != -1)
 				debugProfiles[index].Restart();
 		}
-		
-		
-		
-		
-		
 	}
-
 }
-
-// =======================================================================================
