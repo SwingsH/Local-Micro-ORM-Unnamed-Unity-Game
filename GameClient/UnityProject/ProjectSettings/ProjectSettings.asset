@@ -582,7 +582,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: Define_Country_ID;CLIENT_APP
     4: Define_Country_ID;CLIENT_APP
-    7: CLIENT_APP
+    7: CLIENT_APP;wTOOLS;wDB;wMYSQL
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

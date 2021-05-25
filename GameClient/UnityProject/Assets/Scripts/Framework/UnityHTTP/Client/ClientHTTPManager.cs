@@ -149,14 +149,14 @@ namespace TIZSoft.UnityHTTP.Client
 
             if (httpRequest.OnResponded != null)
             {
-                try
-                {
+                //try
+               // {
                     httpRequest.OnResponded.Invoke(httpRequest);
-                }
-                catch (Exception e)
-                {
+               // }
+               // catch (Exception e)
+                //{
                     //logger.Error(e, "Catch an exception from OnResponded. URI={0}", httpRequest.Uri);
-                }
+                //}
             }
 
             OnResponded(httpRequest);

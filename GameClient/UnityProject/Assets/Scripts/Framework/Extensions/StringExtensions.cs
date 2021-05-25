@@ -43,5 +43,29 @@ namespace TIZSoft.Extensions
         {
             return Encoding.ASCII.GetString(ansiBytes);
         }
+
+        public static int GetDeterministicHashCode(this string value)
+        {
+            unchecked
+            {
+                int hash1 = (8891 << 16) + 8891;
+                int hash2 = hash1;
+
+                for (int i = 0; i < value.Length; i += 2)
+                {
+                    hash1 = ((hash1 << 5) + hash1) ^ value[i];
+                    if (i == value.Length - 1)
+                        break;
+                    hash2 = ((hash2 << 5) + hash2) ^ value[i + 1];
+                }
+                return hash1 + (hash2 * 1443265535);
+            }
+        }
+        public static string ReplaceFirstInstance(this string source, string find, string replace)
+        {
+            int index = source.IndexOf(find);
+            return index < 0 ? source : source.Substring(0, index) + replace +
+                 source.Substring(index + find.Length);
+        }
     }
 }

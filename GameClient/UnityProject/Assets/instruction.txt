@@ -1,0 +1,4 @@
+
+* Dapper 2.0.90 , Tools for Mirceo ORMs
+* Dapper.Contrib 2.0.78
+* MySQL , NET & mono 8.0.25

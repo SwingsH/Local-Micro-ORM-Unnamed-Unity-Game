@@ -1,10 +1,18 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using System.IO;
+using System;
 
-public class VersionDefine
+[InitializeOnLoad]
+public class EditorTools
 {
 	const string DEFINE_CLIENT_APP = "CLIENT_APP";
 	const string DEFINE_SERVER_APP = "SERVER_APP";
+
+	public static string[] definesArray;
+	public static string definesString;
+	public static BuildTargetGroup buildTargetGroup;
 
 	private static BuildTargetGroup[] allTargetGroups = new BuildTargetGroup[]
 		{
@@ -52,7 +60,6 @@ public class VersionDefine
 		{
 			RemoveDefine(targetGroup, DEFINE_CLIENT_APP);
 			RemoveDefine(targetGroup, DEFINE_SERVER_APP);
-
 		}
 	}
 	public static void AddDefine(BuildTargetGroup targetGroup, string keyWord)
@@ -93,4 +100,81 @@ public class VersionDefine
     {
 		return string.Empty;
     }
+
+	public static string EditorPrefsUpdateString(string keyName, string value)
+	{
+		if (EditorPrefs.HasKey(keyName))
+		{
+
+			if (!String.IsNullOrWhiteSpace(value))
+			{
+				EditorPrefs.SetString(keyName, value);
+				return value;
+			}
+			else if (String.IsNullOrWhiteSpace(value))
+			{
+				return EditorPrefs.GetString(keyName);
+			}
+		}
+		else
+		{
+			EditorPrefs.SetString(keyName, value);
+		}
+		return value;
+	}
+
+	public static int EditorPrefsUpdateInt(string keyName, int value)
+	{
+		if (EditorPrefs.HasKey(keyName))
+		{
+
+			if (value != 0)
+			{
+				EditorPrefs.SetInt(keyName, value);
+				return value;
+			}
+			else if (value == 0)
+			{
+				return EditorPrefs.GetInt(keyName);
+			}
+		}
+		else
+		{
+			EditorPrefs.SetInt(keyName, value);
+		}
+		return value;
+	}
+
+	public static void AddScriptingDefine(string define)
+	{
+		if (HasScriptingDefine(define))
+			return;
+
+		PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, (definesString + ";" + define));
+	}
+
+	public static void RemoveScriptingDefine(string define)
+	{
+		if (!HasScriptingDefine(define))
+			return;
+
+		definesArray = TIZSoft.Tools.RemoveFromArray(definesArray, define);
+
+		definesString = string.Join(";", definesArray);
+
+		PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, (definesString));
+	}
+
+	public static bool HasScriptingDefine(string define)
+	{
+		buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
+		definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup);
+		definesArray = definesString.Split(';');
+
+		if (TIZSoft.Tools.ArrayContains(definesArray, define))
+			return true;
+
+		return false;
+	}
 }
+#endif
