@@ -35,9 +35,7 @@ namespace TIZSoft.Database.SQLite
 			
 			_dbPath = Tools.GetPath(databaseName);
 			
-			// checks if the database file has been manipulated outside of the game
-			// recommended for single-player games only, not recommended on very large files
-			if (File.Exists(_dbPath) && checkIntegrity && Tools.GetChecksum(_dbPath) == false)
+			if (File.Exists(_dbPath) && checkIntegrity && Tools.GetChecksum(_dbPath) == false) //not recommended on very large files
 			{
 				debug.LogWarning("[DatabaseManager] Database file is corrupted!");
 				File.Delete(_dbPath);// deletes the file, a fresh database file is re-created thereafter
@@ -47,12 +45,10 @@ namespace TIZSoft.Database.SQLite
 
 		public override void CloseConnection()
 		{
-			
 			connection?.Close();
 		
 			if (checkIntegrity)
 				Tools.SetChecksum(_dbPath);
-			
 		}
 				
 		public override void CreateTable<T>()
@@ -105,5 +101,4 @@ namespace TIZSoft.Database.SQLite
 			
 		}
 	}
-
 }

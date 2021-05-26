@@ -23,8 +23,6 @@ namespace TIZSoft
 	
 		protected static string sOldChecksum, sNewChecksum	= "";
 		
-		// SetPath
-		
 		public static string GetPath(string fileName) {
 #if UNITY_EDITOR
         	return Path.Combine(Directory.GetParent(Application.dataPath).FullName, fileName);
@@ -69,11 +67,6 @@ namespace TIZSoft
 			}
 		}
 		
-		
-		// GetArrayHashCode
-		// for arrays, not compatible with the GetDeterministicHashCode function of strings
-		// not suited for permanent storage !
-		
 		public static int GetArrayHashCode(object[] array)
 		{
 			if (array != null)
@@ -81,10 +74,8 @@ namespace TIZSoft
 				unchecked
 				{
 					int hash = 33;
-
 					foreach (var item in array)
 						hash = hash * 23 + ((item != null) ? item.GetHashCode() : 0);
-
 					return hash;
 				}
 			}
@@ -99,13 +90,6 @@ namespace TIZSoft
 			}
 		}
 		
-		
-		// GetArgumentInt
-		// retrieves an int value that is part of command line arguments this process was
-		// started with 
-		// Note: Arguments are always null on android - their usage only makes sense on
-		// an OS capable of hosting a server
-		
 		public static int GetArgumentInt(string _name)
 		{
 			String[] args = System.Environment.GetCommandLineArgs();
@@ -117,12 +101,6 @@ namespace TIZSoft
 			return 0;
 		}
 		
-		
-		// GetArgumentsString
-		// Note: The first argument is always the process name or empty
-		// Note: Arguments are always null on android - their usage only makes sense on
-		// an OS capable of hosting a server
-		
 		public static string GetArgumentsString
 		{
 			get {
@@ -130,11 +108,6 @@ namespace TIZSoft
 				return args != null ? String.Join(" ", args.Skip(1).ToArray()) : "";
 			}
 		}
-
-		
-		// GetProcessPath
-		// Note: Arguments are always null on android - their usage only makes sense on
-		// an OS capable of hosting a server
 		
 		public static string GetProcessPath
 		{
@@ -145,42 +118,27 @@ namespace TIZSoft
 			}
 		}
 		
-		// Validates a name by simply checking length and allowed characters
-		// Could be expanded here if required
-		
 		public static bool IsAllowedName(string _text)
 		{
 			return _text.Length >= MIN_LENGTH_NAME && 
 					_text.Length <= MAX_LENGTH_NAME &&
 					Regex.IsMatch(_text, @"^[a-zA-Z0-9_]+$");
 		}
-	
-		
-		// Very simple password validation (must not be empty) so it works with hashed
-		// passwords as well.
-		// Could be expanded here if required
 		
 		public static bool IsAllowedPassword(string _text)
 		{
 			return !String.IsNullOrWhiteSpace(_text);
 		}
-		
-		
-		// Very simple numeric token validation
-		
+
 		public static bool IsAllowedToken(int _token)
 		{
 			return _token >= MIN_VALUE_TOKEN && _token <= MAX_VALUE_TOKEN;
 		}
-		
-		
-		// Very simple numeric token generation (4 digit code from 1000 to 9999)
-		
+				
 		public static int GenerateToken()
 		{
 			return UnityEngine.Random.Range(MIN_VALUE_TOKEN, MAX_VALUE_TOKEN);
 		}
-		
 		
 		public static string PBKDF2Hash(string text, string salt)
 		{
@@ -248,19 +206,12 @@ namespace TIZSoft
 			return array.Where(x => x != number).ToArray();
 		}
 		
-		// PlayerPrefsSetString
-		// Only set if exists (and is equal to "oldValue"") or "set" is true
-		
 		public static void PlayerPrefsSetString(string keyName, string newValue, string oldValue="", bool set=false)
 		{
 			if (PlayerPrefs.HasKey(keyName) || set)
 				if ((!set && PlayerPrefs.GetString(keyName) == oldValue) || (!set && oldValue == "") || set)
 					PlayerPrefs.SetString(keyName, newValue);
 		}
-		
-		
-		// PlayerPrefsSetInt
-		// Only set if exists (and is equal to "oldValue"") or "set" is true
 		
 		public static void PlayerPrefsSetInt(string keyName, int newValue, int oldValue=-1, bool set=false)
 		{

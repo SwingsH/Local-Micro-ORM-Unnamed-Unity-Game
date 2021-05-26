@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Reflection;
-using MySql.Data;
 using MySql.Data.MySqlClient;
-using TIZSoft;
-using TIZSoft.Database;
-using TIZSoft.DebugManager;
 
 namespace TIZSoft.Database.MySQL
 {
-	
-	[AttributeUsage (AttributeTargets.Property)]
-	public class PrimaryKeyAttribute : Attribute
-	{
-	}
-	
-	[AttributeUsage (AttributeTargets.Property)]
-	public class AutoIncrementAttribute : Attribute
-	{
-	}
+	[AttributeUsage(AttributeTargets.Property)]
+	public class PrimaryKeyAttribute : Attribute { }
+
+	[AttributeUsage(AttributeTargets.Property)]
+	public class AutoIncrementAttribute : Attribute { }
 	
 	public class MySQLTableMapper
 	{
@@ -27,8 +17,8 @@ namespace TIZSoft.Database.MySQL
 		public string name;
 		public TableRowMapper[] rows;
 		
-		protected string mySQLString			= "";
-		protected string mySQLString_Prefixed 	= "";
+		protected string mySQLString			= string.Empty;
+		protected string mySQLString_Prefixed 	= string.Empty;
 		
 		public MySQLTableMapper(Type _type, string _name, int rowCount)
 		{
@@ -36,17 +26,15 @@ namespace TIZSoft.Database.MySQL
 			name = _name;
 			rows = new TableRowMapper[rowCount];
 		}
-		
+
 		public string RowsToMySQLInsertString
 		{
 			get
 			{
-				
-				string tableParameters = "";
+				string tableParameters = string.Empty;
 			
 				foreach (TableRowMapper row in rows)
 				{
-			
 					tableParameters += row.ToMySQLString;
 					tableParameters += " NOT NULL";
 				
@@ -58,9 +46,9 @@ namespace TIZSoft.Database.MySQL
 			}
 		}
 		
-		public string RowsToMySQLString(string prefix="")
+		public string RowsToMySQLString(string prefix= "")
 		{
-			string convertedString = "";
+			string convertedString;
 			
 			if (!String.IsNullOrWhiteSpace(prefix))
 				convertedString = mySQLString_Prefixed;
@@ -118,7 +106,7 @@ namespace TIZSoft.Database.MySQL
 			{
 				foreach (TableRowMapper row in rows)
 					if (row.primary) return row.name;
-				return "";
+				return string.Empty;
 			}
 		}
 		
@@ -131,7 +119,6 @@ namespace TIZSoft.Database.MySQL
 		
 		public void UpdateValues(object obj)
 		{
-		
 			PropertyInfo[] info;
 			info = obj.GetType().GetProperties();
 			
@@ -141,7 +128,6 @@ namespace TIZSoft.Database.MySQL
 		
 		public T ToType<T>()
 		{
-		
 			T result = (T)Activator.CreateInstance(typeof(T));
 		
 			PropertyInfo[] pInfo0;
@@ -151,61 +137,6 @@ namespace TIZSoft.Database.MySQL
 				pInfo0[i].SetValue(result, rows[i].value);
 				
 			return result;
-			
 		}		
-	}
-	
-	public class TableRowMapper
-	{
-		public string name;
-		public Type type;
-		public object value;
-		public bool primary;
-				
-		const string typeInt 		= " INT";
-		const string typeBool		= " BOOLEAN";
-		const string typeLong 		= " BIGINT";
-		const string typeString 	= " VARCHAR(64)";
-		const string typeDateTime 	= " DATETIME";
-		const string typeFloat		= " FLOAT";
-		const string typeDouble		= " DOUBLE";
-		
-		public string ToMySQLString
-		{
-			get
-			{
-				if (type == typeof(int))
-				{
-					return  "`" + name + "`" + typeInt;
-				}
-				else if (type == typeof(bool))
-				{
-					return "`" + name + "`" + typeBool;
-				}		
-				else if (type == typeof(long))
-				{
-					return "`" + name + "`" + typeLong;
-				}		
-				else if (type == typeof(string))
-				{
-					return "`" + name + "`" + typeString;
-				}		
-				else if (type == typeof(DateTime))
-				{
-					return "`" + name + "`" + typeDateTime;
-				}
-				else if (type == typeof(float))
-				{
-					return "`" + name + "`" + typeFloat;
-				}
-				else if (type == typeof(double))
-				{
-					return "`" + name + "`" + typeDouble;
-				}
-				
-				return "";
-			}
-		}
-	}
-		
+	}	
 }

@@ -58,9 +58,10 @@ namespace TIZSoft.Extensions
                         break;
                     hash2 = ((hash2 << 5) + hash2) ^ value[i + 1];
                 }
-                return hash1 + (hash2 * 1443265535);
+                return hash1 + (hash2 * 14432);
             }
         }
+
         public static string ReplaceFirstInstance(this string source, string find, string replace)
         {
             int index = source.IndexOf(find);
