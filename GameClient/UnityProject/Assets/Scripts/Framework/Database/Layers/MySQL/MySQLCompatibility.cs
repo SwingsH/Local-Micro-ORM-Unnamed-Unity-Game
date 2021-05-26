@@ -93,12 +93,10 @@ namespace TIZSoft.Database.MySQL
 			
 			while (reader.Read())
 			{
-				
 				MySQLTableMapper map = GetTableMapper<T>();
 				
 				for (int i = 0; i < map.rows.Length; i++)
 				{
-					
 					object obj = null;
 					
 					if (map.rows[i].type == typeof(int))
@@ -131,7 +129,6 @@ namespace TIZSoft.Database.MySQL
 					}
 					
 					map.UpdateValue(map.rows[i].name, obj);
-					
 				}
 
 				results.Add(map.ToType<T>());

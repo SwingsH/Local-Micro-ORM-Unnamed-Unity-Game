@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 namespace TIZSoft.Database
 {
@@ -8,8 +9,14 @@ namespace TIZSoft.Database
 		[DevExtMethods("Init")]
 		void Init_Example()
 		{
-	   		CreateTable<TableExample>();
-        	CreateIndex(nameof(TableExample), new []{"owner", "name", "amount"});
+			//CreateTable<TableExample>();
+			//CreateIndex(nameof(TableExample), new []{"owner", "name", "amount"});
+			string query = "SELECT * FROM " + nameof(TableExample);
+			IEnumerable<TableExample> result = Query<TableExample>(query);
+			foreach (var row in result)
+			{ 
+				Debug.Log(row.name);
+			}
 		}
 		
 		[DevExtMethods("CreateDefaultDataPlayer")]

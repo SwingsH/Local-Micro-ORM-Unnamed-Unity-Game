@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Data;
 using System.Collections.Generic;
 using TIZSoft.Database.MySQL;
 
@@ -77,12 +78,10 @@ namespace TIZSoft.Database
 #if _SERVER
 			Init();
 #endif
-
 		}
 
 		public void Init()
 		{
-
 			OpenConnection();
 
 			databaseLayer.Init();
@@ -134,6 +133,12 @@ namespace TIZSoft.Database
 		{
 			debug.Log("[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
 			return databaseLayer.Query<T>(query, args);
+		}
+
+		public IEnumerable<T> Query<T>(string query) where T : new()
+		{
+			debug.Log("[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
+			return databaseLayer.Query<T>(query);
 		}
 
 		public void Execute(string query, params object[] args)

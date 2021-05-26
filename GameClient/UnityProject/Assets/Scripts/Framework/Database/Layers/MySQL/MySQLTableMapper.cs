@@ -5,11 +5,6 @@ using MySql.Data.MySqlClient;
 
 namespace TIZSoft.Database.MySQL
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	public class PrimaryKeyAttribute : Attribute { }
-
-	[AttributeUsage(AttributeTargets.Property)]
-	public class AutoIncrementAttribute : Attribute { }
 	
 	public class MySQLTableMapper
 	{

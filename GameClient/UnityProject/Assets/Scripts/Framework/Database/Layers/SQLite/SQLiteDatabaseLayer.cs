@@ -1,9 +1,6 @@
 ﻿
-using TIZSoft;
-using TIZSoft.Database;
 using TIZSoft.DebugManager;
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using SQLite;

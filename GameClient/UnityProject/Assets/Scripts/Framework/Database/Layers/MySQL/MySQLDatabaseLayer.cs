@@ -3,13 +3,11 @@ using TIZSoft;
 using TIZSoft.Database;
 using TIZSoft.DebugManager;
 using UnityEngine;
-using System;
-using System.Net;
 using System.Linq;
 using System.Collections.Generic;
-using System.IO;
-using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Data;
+using Dapper;
 using SQLite;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -37,7 +35,7 @@ namespace TIZSoft.Database.MySQL
 		protected MySqlConnection connection = null;
 		protected string connectionString = null;
 		
-		protected MySQLCompatibility dbCompat = new MySQLCompatibility();
+		protected MySQLCompatibility mysqlCompat = new MySQLCompatibility();
 		
 		public override void Init()
 		{
@@ -59,7 +57,7 @@ namespace TIZSoft.Database.MySQL
 		
 		public override void CreateTable<T>()
 		{
-			MySQLTableMapper tableMap = dbCompat.GetTableMapper<T>();
+			MySQLTableMapper tableMap = mysqlCompat.GetTableMapper<T>();
 			
 			string primaryKeyString = "";
 			
@@ -85,15 +83,22 @@ namespace TIZSoft.Database.MySQL
 		
 		public override void Execute(string query, params object[] args)
 		{
-			ExecuteNonQuery(connection, null, dbCompat.GetConvertedQuery(query), dbCompat.GetConvertedParameters(args));
+			ExecuteNonQuery(connection, null, mysqlCompat.GetConvertedQuery(query), mysqlCompat.GetConvertedParameters(args));
 		}
 		
 		public override List<T> Query<T>(string query, params object[] args)
 		{
-			MySQLRowsReader reader = ExecuteReader(connection, null, dbCompat.GetConvertedQuery(query), dbCompat.GetConvertedParameters(args));
-			return dbCompat.ConvertReader<T>(reader);
+			MySQLRowsReader reader = ExecuteReader(connection, null, mysqlCompat.GetConvertedQuery(query), mysqlCompat.GetConvertedParameters(args));
+			return mysqlCompat.ConvertReader<T>(reader);
 		}
-		
+
+		public IEnumerable<T> Query<T>( string query)
+		{
+			IDbConnection conn = NewConnection();
+			conn.Open();
+			return conn.Query<T>(query);
+		}
+
 		public override T FindWithQuery<T>(string query, params object[] args)
 		{
 			List<T> list = Query<T>(query, args);
@@ -109,7 +114,7 @@ namespace TIZSoft.Database.MySQL
 			if (obj == null)
 				return;
 			
-			MySQLTableMapper tableMap = dbCompat.GetTableMapper(obj);
+			MySQLTableMapper tableMap = mysqlCompat.GetTableMapper(obj);
 			
 			string queryString = "INSERT INTO "+tableMap.name+" ("+tableMap.RowsToMySQLString()+") VALUES("+tableMap.RowsToMySQLString("@")+")";
 
@@ -121,7 +126,7 @@ namespace TIZSoft.Database.MySQL
 			if (obj == null)
 				return;
 			
-			MySQLTableMapper tableMap = dbCompat.GetTableMapper(obj);
+			MySQLTableMapper tableMap = mysqlCompat.GetTableMapper(obj);
 			
 			string queryString = "REPLACE INTO "+tableMap.name+" ("+tableMap.RowsToMySQLString()+") VALUES("+tableMap.RowsToMySQLString("@")+")";
 
@@ -171,16 +176,10 @@ namespace TIZSoft.Database.MySQL
 			}
 		}
 		
-		
-		// NewConnection
-		
 		MySqlConnection NewConnection()
         {
             return new MySqlConnection(GetConnectionString);
         }
-		
-		
-		// ExecuteInsertData
 		
         long ExecuteInsertData(string sql, params MySqlParameter[] args)
         {
@@ -190,9 +189,6 @@ namespace TIZSoft.Database.MySQL
             connection.Close();
             return result;
         }
-		
-		
-		// ExecuteInsertData
 		
         long ExecuteInsertData(MySqlConnection connection, MySqlTransaction transaction, string sql, params MySqlParameter[] args)
         {
@@ -221,9 +217,6 @@ namespace TIZSoft.Database.MySQL
             return result;
         }
 		
-		
-		// ExecuteNonQuery
-		
         int ExecuteNonQuery(string sql, params MySqlParameter[] args)
         {
             MySqlConnection connection = NewConnection();
@@ -232,9 +225,6 @@ namespace TIZSoft.Database.MySQL
             connection.Close();
             return result;
         }
-		
-		
-		// ExecuteNonQuery
 		
         int ExecuteNonQuery(MySqlConnection connection, MySqlTransaction transaction, string sql, params MySqlParameter[] args)
         {
@@ -262,9 +252,6 @@ namespace TIZSoft.Database.MySQL
             return numRows;
         }
 		
-		
-		// ExecuteScalar
-		
         object ExecuteScalar(string sql, params MySqlParameter[] args)
         {
             MySqlConnection connection = NewConnection();
@@ -273,9 +260,6 @@ namespace TIZSoft.Database.MySQL
             connection.Close();
             return result;
         }
-		
-		
-		// ExecuteScalar
 		
         object ExecuteScalar(MySqlConnection connection, MySqlTransaction transaction, string sql, params MySqlParameter[] args)
         {
@@ -303,9 +287,6 @@ namespace TIZSoft.Database.MySQL
             return result;
         }
 		
-		
-		// ExecuteReader
-		
         MySQLRowsReader ExecuteReader(string sql, params MySqlParameter[] args)
         {
             MySqlConnection connection = NewConnection();
@@ -314,9 +295,6 @@ namespace TIZSoft.Database.MySQL
             connection.Close();
             return result;
         }
-		
-		
-		// ExecuteReader
 		
         MySQLRowsReader ExecuteReader(MySqlConnection connection, MySqlTransaction transaction, string sql, params MySqlParameter[] args)
         {
@@ -345,11 +323,5 @@ namespace TIZSoft.Database.MySQL
                 connection.Close();
             return result;
         }
-        
-		
-
 	}
-
 }
-
-// =======================================================================================
