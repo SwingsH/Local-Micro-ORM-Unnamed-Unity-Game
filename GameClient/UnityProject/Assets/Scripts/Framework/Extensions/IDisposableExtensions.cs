@@ -1,11 +1,11 @@
 ﻿using System;
-using TIZSoft.Log;
+using TIZSoft.Utils.Log;
 
 namespace TIZSoft.Extensions
 {
     public static class IDisposableExtensions
     {
-        //static readonly Logger logger = LogManager.Default.FindOrCreateLogger(typeof(IDisposableExtensions).FullName);
+        static readonly Logger logger = LogManager.Default.FindOrCreateLogger(typeof(IDisposableExtensions).FullName);
 
         public static void SafeDispose(this IDisposable disposable)
         {
@@ -20,7 +20,7 @@ namespace TIZSoft.Extensions
             }
             catch (Exception exception)
             {
-                //logger.Error(exception);
+                logger.Error(exception);
             }
         }
     }

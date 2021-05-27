@@ -43,6 +43,7 @@ namespace TIZSoft.UnityHTTP.Client
         static int requestSerialNum;
         readonly PriorityQueue<ClientHttpRequest> queue = new PriorityQueue<ClientHttpRequest>();
         readonly Dictionary<string, string> commonRequestHeaders = new Dictionary<string, string>();
+        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<ClientHttpManager>();
 
         public int RequestQueueCount
         {
@@ -139,7 +140,7 @@ namespace TIZSoft.UnityHTTP.Client
                 }
                 catch (Exception e)
                 {
-                    //logger.Error(e);
+                    logger.Error(e);
                 }
                 await UniTask.Yield();
             }
@@ -149,14 +150,14 @@ namespace TIZSoft.UnityHTTP.Client
 
             if (httpRequest.OnResponded != null)
             {
-                //try
-               // {
+                try
+                {
                     httpRequest.OnResponded.Invoke(httpRequest);
-               // }
-               // catch (Exception e)
-                //{
-                    //logger.Error(e, "Catch an exception from OnResponded. URI={0}", httpRequest.Uri);
-                //}
+                }
+                catch (Exception e)
+                {
+                    logger.Error(e, "Catch an exception from OnResponded. URI={0}", httpRequest.Uri);
+                }
             }
 
             OnResponded(httpRequest);
@@ -170,7 +171,7 @@ namespace TIZSoft.UnityHTTP.Client
             }
             catch (Exception e)
             {
-                //logger.Error(e);
+                logger.Error(e);
             }
         }
 
@@ -178,20 +179,20 @@ namespace TIZSoft.UnityHTTP.Client
         {
             try
             {
-                //logger.Debug("Sending \"{0}\"...{1:P2}", request.Uri, progress);
-                //try
-                //{
+                logger.Debug("Sending \"{0}\"...{1:P2}", request.Uri, progress);
+                try
+                {
                     request.OnProgressUpdated.Invoke(request, progress);
-                //}
-               // catch (Exception e)
-                //{
-                    //logger.Error(e, " at request.OnProgressUpdate.Raise()");
-                //}
+                }
+                catch (Exception e)
+                {
+                    logger.Error(e, " at request.OnProgressUpdate.Raise()");
+                }
                 //progressUpdated.OnNext(new HttpEventArgs(this, request, progress));
             }
             catch (Exception e)
             {
-                //logger.Error(e);
+                logger.Error(e);
             }
         }
 
@@ -203,7 +204,7 @@ namespace TIZSoft.UnityHTTP.Client
             }
             catch (Exception e)
             {
-                //logger.Error(e);
+                logger.Error(e);
             }
         }
 

@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.IO;
 using UberLogger;
 
-namespace TIZSoft.Log
+namespace TIZSoft.Utils.Log
 {
     /// <summary>
-    /// 檔案輸出實作，基於 UberLogger。
+    /// based on : UberLogger。
     /// </summary>
     class FileTarget : ILogger
     {

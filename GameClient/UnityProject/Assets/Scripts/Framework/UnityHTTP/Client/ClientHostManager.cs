@@ -29,7 +29,7 @@ namespace TIZSoft.UnityHTTP.Client
             public List<Entry> Hosts;
         }
 
-        //static readonly Log.Logger logger = LogManager.Default.FindOrCreateLogger<HostManager>();
+        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<ClientHostManager>();
 
         readonly Dictionary<string, string> hosts = new Dictionary<string, string>();
 
@@ -225,7 +225,7 @@ namespace TIZSoft.UnityHTTP.Client
             {
                 if (entry == null)
                 {
-                    //logger.Warn("Found a null host entry.");
+                    logger.Warn("Found a null host entry.");
                     continue;
                 }
 
@@ -235,7 +235,7 @@ namespace TIZSoft.UnityHTTP.Client
                 }
                 catch (Exception e)
                 {
-                    //logger.Error(e, "Add host {{\"{0}\":\"{1}\"}} failed.", entry.HostId, entry.Host);
+                    logger.Error(e, "Add host {{\"{0}\":\"{1}\"}} failed.", entry.HostId, entry.Host);
                 }
             }
         }
@@ -250,7 +250,7 @@ namespace TIZSoft.UnityHTTP.Client
                 }
                 catch (Exception e)
                 {
-                    //logger.Error(e, "Add host {{\"{0}\":\"{1}\"}} failed.", pair.Key, pair.Value);
+                    logger.Error(e, "Add host {{\"{0}\":\"{1}\"}} failed.", pair.Key, pair.Value);
                 }
             }
         }

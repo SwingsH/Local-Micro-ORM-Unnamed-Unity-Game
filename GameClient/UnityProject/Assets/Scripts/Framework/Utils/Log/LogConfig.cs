@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TIZSoft.Log
+namespace TIZSoft.Utils.Log
 {
     [Serializable]
     public class LogConfig

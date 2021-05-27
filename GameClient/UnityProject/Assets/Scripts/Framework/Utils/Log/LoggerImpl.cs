@@ -2,7 +2,7 @@
 using UberLogger;
 using UnityEngine;
 
-namespace TIZSoft.Log
+namespace TIZSoft.Utils.Log
 {
     /// <summary>
     /// Logger 功能實作類別，使用 UberLogger 實作。

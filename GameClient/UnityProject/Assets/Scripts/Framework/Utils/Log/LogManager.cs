@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace TIZSoft.Log
+namespace TIZSoft.Utils.Log
 {
     public class LogManager
     {

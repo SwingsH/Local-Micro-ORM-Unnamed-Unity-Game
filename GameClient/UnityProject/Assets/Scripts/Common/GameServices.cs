@@ -5,11 +5,14 @@ using System.Text;
 using UniRx;
 using TIZSoft.UnityHTTP;
 using TIZSoft.UnityHTTP.Client;
+using TIZSoft.Utils;
 
 namespace TIZSoft.Services
 {
     public class GameServices
     {
+        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<GameServices>();
+
         readonly Dictionary<ServerType, string> serverIds = new Dictionary<ServerType, string>();
 
         protected string Prefix { get; private set; } //e.g. "/projectname/account/create"，projectname is Prefix
@@ -260,7 +263,7 @@ namespace TIZSoft.Services
                 var json = data != null ? JObject.FromObject(data).ToString() : string.Empty;
                 var bytes = Encoding.UTF8.GetBytes(json);
 
-                //logger.Debug("HTTP {0} {1}", httpMethod.ToUpper(),UriUtils.BuildUri(WebService.HostManager.FindHost(serverId), fullApi));
+                logger.Debug("HTTP {0} {1}", httpMethod.ToUpper(),UriUtils.BuildUri(WebService.HostManager.FindHost(serverId), fullApi));
                 WebService.Call(
                     serverId,
                     fullApi,
@@ -272,7 +275,7 @@ namespace TIZSoft.Services
             }
             catch (Exception e)
             {
-                //logger.Error(e, "API={0}, HTTPMethod={1}", fullApi, httpMethod);
+                logger.Error(e, "API={0}, HTTPMethod={1}", fullApi, httpMethod);
                 UberDebug.Log(e.ToString());
                 throw;
             }

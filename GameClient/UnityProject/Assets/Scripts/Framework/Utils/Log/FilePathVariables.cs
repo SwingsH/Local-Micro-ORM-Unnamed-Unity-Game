@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace TIZSoft.Log
+namespace TIZSoft.Utils.Log
 {
     public static class FilePathVariables
     {
