@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using TIZSoft.Utils.Log;
 
 namespace TIZSoft.Database
 {
 
 	public partial class DatabaseManager
 	{
+		static readonly Utils.Log.Logger logger = LogManager.Default.FindOrCreateCurrentTypeLogger();
+
 		[DevExtMethods("Init")]
 		void Init_Example()
 		{
@@ -14,8 +17,8 @@ namespace TIZSoft.Database
 			string query = "SELECT * FROM " + nameof(TableExample);
 			IEnumerable<TableExample> result = Query<TableExample>(query);
 			foreach (var row in result)
-			{ 
-				Debug.Log(row.name);
+			{
+				logger.Log( LogLevel.Info, row.name);
 			}
 		}
 		

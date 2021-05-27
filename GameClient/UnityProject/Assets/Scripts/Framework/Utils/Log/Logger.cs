@@ -200,7 +200,7 @@ namespace TIZSoft.Utils.Log
         {
             if (LogManager.Default.IsEnabled(logEventInfo.LogLevel) && IsEnabled(logEventInfo.LogLevel))
             {
-                LoggerImpl.Log(logEventInfo);
+                LoggerImplement.Log(logEventInfo);
             }
         }
 

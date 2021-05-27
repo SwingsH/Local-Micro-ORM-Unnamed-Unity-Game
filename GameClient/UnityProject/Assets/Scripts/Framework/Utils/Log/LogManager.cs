@@ -35,7 +35,7 @@ namespace TIZSoft.Utils.Log
 
         LogConfig config;
 
-        // 暫不開放自行建立實體，請改用 LogManager.Default。
+        // use LogManager.Default instead.
         LogManager()
         {
         }
@@ -56,7 +56,7 @@ namespace TIZSoft.Utils.Log
                 IsFatalEnabled = value.IsFatalEnabled;
 
                 var processedLogFilePath = FilePathVariables.ReplaceVariables(value.LogFilePath);
-                LoggerImpl.AddFileTarget(processedLogFilePath);
+                LoggerImplement.AddFileTarget(processedLogFilePath);
 
                 config = value;
             }

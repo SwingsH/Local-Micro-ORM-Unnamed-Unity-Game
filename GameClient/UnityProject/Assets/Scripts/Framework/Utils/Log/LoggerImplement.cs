@@ -1,14 +1,23 @@
 ﻿using System;
-using UberLogger;
 using UnityEngine;
+using UberLogger;
+using TIZSoft.Utils;
 
 namespace TIZSoft.Utils.Log
 {
     /// <summary>
-    /// Logger 功能實作類別，使用 UberLogger 實作。
+    /// Logger implemet，using UberLogger 
+    /// 1. Editor console
+    /// 2. In-Game Console
+    /// 3. Local FIles
+    /// 4. Remote Log
     /// </summary>
-    static class LoggerImpl
+    static class LoggerImplement
     {
+        const bool ACTIVE_INGAME_CONSOLE = true;
+        const string NAME_PREFAB_INGAME_CONSOLE = "UberAppConsole";
+
+        static private GameObject consoleGameObject = null;
         static readonly object[] EmptyArgs = new object[0];
 
         public static void AddFileTarget(string fullFilePath)
@@ -19,6 +28,8 @@ namespace TIZSoft.Utils.Log
         [StackTraceIgnore]
         public static void Log(LogEventInfo logEventInfo)
         {
+            CheckInGameConsole();
+
             // (channel, messageOrFormat, args)
             Action<string, string, object[]> log;
 
@@ -66,6 +77,28 @@ namespace TIZSoft.Utils.Log
             catch (Exception e)
             {
                 Debug.LogError(e);
+            }
+        }
+
+        public static void CheckInGameConsole()
+        {
+            if (ACTIVE_INGAME_CONSOLE && consoleGameObject == null)
+            {
+                UberLoggerAppWindow[] consoles = UnityUtils.FindObjectsOfType<UberLoggerAppWindow>();
+                if (consoles.Length > 1)
+                {
+                    Debug.LogError("Duplicated UberLoggerAppWindow.");
+                }
+                if (consoles.Length > 0)
+                {
+                    consoleGameObject = consoles[0].gameObject;
+                    return;
+                }
+
+                consoleGameObject = new GameObject(typeof(UberLoggerAppWindow).Name);
+                consoleGameObject = GameObject.Instantiate(Resources.Load(NAME_PREFAB_INGAME_CONSOLE) as GameObject);
+                consoleGameObject.name = consoleGameObject.name.Replace("(Clone)", string.Empty);
+                consoleGameObject.hideFlags = HideFlags.DontSave;
             }
         }
     }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
-using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TIZSoft.UnityHTTP.Client
 {
@@ -62,7 +62,11 @@ namespace TIZSoft.UnityHTTP.Client
                 }
 
                 var value = kvp.Value != null ? kvp.Value.ToString() : string.Empty;
+#if UNITY_2020_2_OR_NEWER
+                builder.AppendFormat("&{0}={1}", kvp.Key, UnityWebRequest.EscapeURL(value));
+#else
                 builder.AppendFormat("&{0}={1}", kvp.Key, WWW.EscapeURL(value));
+#endif
             }
 
             return builder.ToString();

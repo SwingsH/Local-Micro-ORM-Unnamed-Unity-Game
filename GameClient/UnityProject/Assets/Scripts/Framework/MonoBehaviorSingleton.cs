@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitySingletonBase<T> : MonoBehaviour where T : Component
+public class MonoBehaviorSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
 	private static T _instance;
 	private static readonly object _instanceLock = new object();
@@ -14,7 +14,6 @@ public class UnitySingletonBase<T> : MonoBehaviour where T : Component
 			{
 				if (_instance == null && !_isQuitting)
 				{
-
 					_instance = FindObjectOfType<T>();
 					if (_instance == null)
 					{
@@ -53,5 +52,4 @@ public class UnitySingletonBase<T> : MonoBehaviour where T : Component
 	{
 		_isQuitting = true;
 	}
-
 }
