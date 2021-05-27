@@ -1,5 +1,4 @@
 ﻿
-using TIZSoft.DebugManager;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +9,8 @@ namespace TIZSoft.Database.SQLite
 	[System.Serializable]
 	public partial class SQLiteDatabaseLayer : DatabaseAbstractionLayer
 	{
+		static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<SQLiteDatabaseLayer>();
+
 		[Header("Options")]
 		public string databaseName 	= "Database.sqlite";
 		[Tooltip("Launch automatically when the game is started (recommended for Single-Player games).")]
@@ -34,7 +35,7 @@ namespace TIZSoft.Database.SQLite
 			
 			if (File.Exists(_dbPath) && checkIntegrity && Tools.GetChecksum(_dbPath) == false) //not recommended on very large files
 			{
-				debug.LogWarning("[DatabaseManager] Database file is corrupted!");
+				logger.Log(Utils.Log.LogLevel.Warn, "[DatabaseManager] Database file is corrupted!");
 				File.Delete(_dbPath);// deletes the file, a fresh database file is re-created thereafter
 			}
 			connection = new SQLiteConnection(_dbPath);

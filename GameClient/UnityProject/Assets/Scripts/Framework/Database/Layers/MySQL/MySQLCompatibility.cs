@@ -162,7 +162,6 @@ namespace TIZSoft.Database.MySQL
 					tableMap.rows[i].primary = true;
 					hasPrimary = true;
 				}
-				
 			}
 			
 			return tableMap;

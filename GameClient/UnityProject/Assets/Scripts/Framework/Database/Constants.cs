@@ -13,11 +13,11 @@ namespace TIZSoft {
 		public const string PlayerPrefsPassword 			= "UserPass";	
 		public const string PlayerPrefsLastServer 			= "LastServer";
 		
-		public const string EditorPrefsMySQLAddress			= "mySQLAddress";
-		public const string EditorPrefsMySQLPort			= "mySQLPort";
-		public const string EditorPrefsMySQLUsername		= "mySQLUsername";
-		public const string EditorPrefsMySQLPassword		= "mySQLPassword";
-		public const string EditorPrefsMySQLDatabase		= "mySQLDatabase";
-		public const string EditorPrefsMySQLCharset			= "mySQLCharset";
+		public const string EDITOR_PREFS_MYSQL_ADDRESS			= "mySQLAddress";
+		public const string EDITOR_PREFS_MYSQL_PORT				= "mySQLPort";
+		public const string EDITOR_PREFS_MYSQL_USERNAME			= "mySQLUsername";
+		public const string EDITOR_PREFS_MYSQL_PASSWORD			= "mySQLPassword";
+		public const string EDITOR_PREFS_MYSQL_DATABASE			= "mySQLDatabase";
+		public const string EDITOR_PREFS_MYSQL_CHARSET			= "mySQLCharset";
 	}
 }

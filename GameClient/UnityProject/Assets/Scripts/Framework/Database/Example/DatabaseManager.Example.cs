@@ -7,7 +7,7 @@ namespace TIZSoft.Database
 
 	public partial class DatabaseManager
 	{
-		static readonly Utils.Log.Logger logger = LogManager.Default.FindOrCreateCurrentTypeLogger();
+		//static readonly Utils.Log.Logger logger = LogManager.Default.FindOrCreateCurrentTypeLogger();
 
 		[DevExtMethods("Init")]
 		void Init_Example()

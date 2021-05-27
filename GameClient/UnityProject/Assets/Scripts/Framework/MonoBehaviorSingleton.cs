@@ -12,24 +12,32 @@ public class MonoBehaviorSingleton<T> : MonoBehaviour where T : MonoBehaviour
 		{
 			lock (_instanceLock)
 			{
-				if (_instance == null && !_isQuitting)
-				{
-					_instance = FindObjectOfType<T>();
-					if (_instance == null)
-					{
-						GameObject go = new GameObject();
-						go.name = string.Format("{0}Singleton", typeof(T).ToString());
-						go.hideFlags = HideFlags.DontSave;
-						_instance = go.AddComponent<T>();
-					}
-				}
+				Init();
 
 				return _instance;
 			}
 		}
 	}
 
+	protected static void Init()
+    {
+		if (_instance == null && !_isQuitting)
+		{
+			_instance = FindObjectOfType<T>();
+			if (_instance == null)
+			{
+				GameObject go = new GameObject();
+				go.name = string.Format("{0}Singleton", typeof(T).ToString());
+				go.hideFlags = HideFlags.DontSave;
+				_instance = go.AddComponent<T>();
+			}
+		}
+	}
+
 	protected virtual void Awake(){
+		if(!_instance){
+			Init();
+		}
 		DontDestroyOnLoad(_instance.gameObject);
 
 		if (_instance == null){

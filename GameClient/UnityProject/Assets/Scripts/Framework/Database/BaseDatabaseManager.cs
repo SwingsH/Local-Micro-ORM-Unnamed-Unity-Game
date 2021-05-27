@@ -1,5 +1,4 @@
 ﻿
-using TIZSoft.DebugManager;
 using UnityEngine;
 using System;
 
@@ -7,13 +6,10 @@ namespace TIZSoft.Database
 {
 	public abstract partial class BaseDatabaseManager : MonoBehaviour
 	{
-		[Header("Debug Helper")]
-		public DebugHelper debug;
+		//static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<BaseDatabaseManager>();
 		
 		public virtual void Awake()
 		{
-			debug = new DebugHelper();
-			debug.Init();
 		}
 		
 		public virtual bool TryUserLogin(string name, string password)

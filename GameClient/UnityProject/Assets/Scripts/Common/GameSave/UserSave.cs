@@ -9,17 +9,17 @@ public class UserSave
     [Colomn("serial_id")]
     public int Id { get; set; }
     [Colomn("guid")]
-    string Guid { get; set; }
+    public string Guid { get; set; }
     [Colomn("user_name")]
-    string Name { get; set; }
+    public string Name { get; set; }
     [Colomn("screen_name")]
-    string ScreenName { get; set; }
+    public string ScreenName { get; set; }
     [Colomn("create_time")]
-    DateTime CreateDatetime { get; set; }
+    public DateTime CreateDatetime { get; set; }
     [Colomn("lastlogin_time")]
-    DateTime LastLoginDatetime { get; set; }
+    public DateTime LastLoginDatetime { get; set; }
     [Colomn("lastlogin_device_name")]
-    string LastLoginDeviceName { get; set; }
+    public string LastLoginDeviceName { get; set; }
     [Colomn("lastlogin_device_lang")]
-    string LastLoginDeviceLang { get; set; }
+    public string LastLoginDeviceLang { get; set; }
 }

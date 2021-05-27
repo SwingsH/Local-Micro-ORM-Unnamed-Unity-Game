@@ -1,14 +1,10 @@
 ﻿
-using TIZSoft;
-using TIZSoft.Database;
-using TIZSoft.DebugManager;
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Dapper;
-using SQLite;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -146,13 +142,23 @@ namespace TIZSoft.Database.MySQL
 		public override void OnValidate()
 		{
 #if UNITY_EDITOR
-			address 	= EditorTools.EditorPrefsUpdateString(Constants.EditorPrefsMySQLAddress, address);
-			port 		= (uint)EditorTools.EditorPrefsUpdateInt(Constants.EditorPrefsMySQLPort, (int)port);
-			username 	= EditorTools.EditorPrefsUpdateString(Constants.EditorPrefsMySQLUsername, username);
-			password 	= EditorTools.EditorPrefsUpdateString(Constants.EditorPrefsMySQLPassword, password);
-			dbName 		= EditorTools.EditorPrefsUpdateString(Constants.EditorPrefsMySQLDatabase, dbName);
-			charset		= EditorTools.EditorPrefsUpdateString(Constants.EditorPrefsMySQLCharset, charset);
+			address 	= EditorTools.EditorPrefsUpdateString(Constants.EDITOR_PREFS_MYSQL_ADDRESS, address);
+			port 		= (uint)EditorTools.EditorPrefsUpdateInt(Constants.EDITOR_PREFS_MYSQL_PORT, (int)port);
+			username 	= EditorTools.EditorPrefsUpdateString(Constants.EDITOR_PREFS_MYSQL_USERNAME, username);
+			password 	= EditorTools.EditorPrefsUpdateString(Constants.EDITOR_PREFS_MYSQL_PASSWORD, password);
+			dbName 		= EditorTools.EditorPrefsUpdateString(Constants.EDITOR_PREFS_MYSQL_DATABASE, dbName);
+			charset		= EditorTools.EditorPrefsUpdateString(Constants.EDITOR_PREFS_MYSQL_CHARSET, charset);
 #endif
+		}
+
+		public void FetchSettingFromEditorPrefs()
+        {
+			address = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_ADDRESS, address);
+			port = (uint)EditorPrefs.GetInt(Constants.EDITOR_PREFS_MYSQL_PORT, (int)port);
+			username = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_USERNAME, username);
+			password = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_PASSWORD, password);
+			dbName = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_DATABASE, dbName);
+			charset = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_CHARSET, charset);
 		}
 		
 		string GetConnectionString

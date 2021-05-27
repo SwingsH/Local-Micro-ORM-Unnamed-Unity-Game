@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Data;
 using System.Collections.Generic;
 using TIZSoft.Database.MySQL;
+using TIZSoft.Database.SQLite;
+using TIZSoft.Utils.Log;
 
 namespace TIZSoft.Database
 {
@@ -10,13 +11,15 @@ namespace TIZSoft.Database
 	[DisallowMultipleComponent]
 	public partial class DatabaseManager : BaseDatabaseManager, IAbstractableDatabase
 	{
+		static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<BaseDatabaseManager>();
+
 		[Header("Settings")]
 		public DatabaseType databaseType = DatabaseType.SQLite;
 		[Tooltip("Player data save interval in seconds (0 to disable).")]
 		public float saveInterval = 60f;
 		[Tooltip("Deleted user prune interval in seconds (0 to disable).")]
 		public float deleteInterval = 240f;
-		
+
 		public static DatabaseManager singleton;
 		
 		protected DatabaseType _databaseType = DatabaseType.SQLite;
@@ -95,7 +98,6 @@ namespace TIZSoft.Database
 				InvokeRepeating(nameof(DeleteUsers), deleteInterval, deleteInterval);
 
 			this.InvokeInstanceDevExtMethods(nameof(Init));
-
 		}
 
 		public void Destruct()
@@ -108,48 +110,48 @@ namespace TIZSoft.Database
 		public void OpenConnection()
 		{
 			databaseLayer.OpenConnection();
-			debug.Log("[DatabaseManager] OpenConnection");
+			logger.Log(LogLevel.Info, "[DatabaseManager] OpenConnection");
 		}
 
 		public void CloseConnection()
 		{
 			databaseLayer.CloseConnection();
-			debug.Log("[DatabaseManager] CloseConnection");
+			logger.Log(LogLevel.Info, "[DatabaseManager] CloseConnection");
 		}
 
 		public void CreateTable<T>()
 		{
 			databaseLayer.CreateTable<T>();
-			debug.Log("[DatabaseManager] CreateTable: " + typeof(T));
+			logger.Log(LogLevel.Info, "[DatabaseManager] CreateTable: " + typeof(T));
 		}
 
 		public void CreateIndex(string tableName, string[] columnNames, bool unique = false)
 		{
 			databaseLayer.CreateIndex(tableName, columnNames, unique);
-			debug.Log("[DatabaseManager] CreateIndex: " + tableName + " (" + string.Join("_", columnNames) + ")");
+			logger.Log(LogLevel.Info, "[DatabaseManager] CreateIndex: " + tableName + " (" + string.Join("_", columnNames) + ")");
 		}
 
 		public List<T> Query<T>(string query, params object[] args) where T : new()
 		{
-			debug.Log("[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
+			logger.Log(LogLevel.Info, "[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
 			return databaseLayer.Query<T>(query, args);
 		}
 
 		public IEnumerable<T> Query<T>(string query) where T : new()
 		{
-			debug.Log("[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
+			logger.Log(LogLevel.Info, "[DatabaseManager] Query: " + typeof(T) + "(" + query + ")");
 			return databaseLayer.Query<T>(query);
 		}
 
 		public void Execute(string query, params object[] args)
 		{
 			databaseLayer.Execute(query, args);
-			debug.Log("[DatabaseManager] Execute: " + query);
+			logger.Log(LogLevel.Info, "[DatabaseManager] Execute: " + query);
 		}
 
 		public T FindWithQuery<T>(string query, params object[] args) where T : new()
 		{
-			debug.Log("[DatabaseManager] FindWithQuery: " + typeof(T) + " (" + query + ")");
+			logger.Log(LogLevel.Info, "[DatabaseManager] FindWithQuery: " + typeof(T) + " (" + query + ")");
 			return databaseLayer.FindWithQuery<T>(query, args);
 		}
 
@@ -157,25 +159,25 @@ namespace TIZSoft.Database
 		public void Insert(object obj)
 		{
 			databaseLayer.Insert(obj);
-			debug.Log("[DatabaseManager] Insert: " + obj);
+			logger.Log(LogLevel.Info, "[DatabaseManager] Insert: " + obj);
 		}
 
 		public void InsertOrReplace(object obj)
 		{
 			databaseLayer.InsertOrReplace(obj);
-			debug.Log("[DatabaseManager] InsertOrReplace: " + obj);
+			logger.Log(LogLevel.Info, "[DatabaseManager] InsertOrReplace: " + obj);
 		}
 
 		public void BeginTransaction()
 		{
 			databaseLayer.BeginTransaction();
-			debug.Log("[DatabaseManager] BeginTransaction");
+			logger.Log(LogLevel.Info, "[DatabaseManager] BeginTransaction");
 		}
 
 		public void Commit()
 		{
 			databaseLayer.Commit();
-			debug.Log("[DatabaseManager] Commit");
+			logger.Log(LogLevel.Info, "[DatabaseManager] Commit");
 		}
 	}
 }

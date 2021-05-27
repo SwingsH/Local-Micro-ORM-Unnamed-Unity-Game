@@ -1,14 +1,11 @@
 
-using TIZSoft;
-using TIZSoft.DebugManager;
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace TIZSoft.DebugManager
+namespace TIZSoft.Utils
 {
-	public partial class DebugProfile
+	public class DebugProfile
 	{
 		
 		public string name;
