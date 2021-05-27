@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Dapper;
+using TIZSoft.Utils.Log;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -32,7 +33,8 @@ namespace TIZSoft.Database.MySQL
 		protected string connectionString = null;
 		
 		protected MySQLCompatibility mysqlCompat = new MySQLCompatibility();
-		
+		static readonly Utils.Log.Logger logger = LogManager.Default.FindOrCreateLogger<DeployDatabase>();
+
 		public override void Init()
 		{
 		}
@@ -63,8 +65,9 @@ namespace TIZSoft.Database.MySQL
 			string queryString = "CREATE TABLE IF NOT EXISTS "+tableMap.name+"("+tableMap.RowsToMySQLInsertString+primaryKeyString+") CHARACTER SET="+charset;
 
 			ExecuteNonQuery(connection, null, queryString);
+			logger.Debug(queryString);
 		}
-		
+
 		public override void CreateIndex(string tableName, string[] columnNames, bool unique = false)
 		{
 			string indexName = tableName + "_" + string.Join ("_", columnNames);

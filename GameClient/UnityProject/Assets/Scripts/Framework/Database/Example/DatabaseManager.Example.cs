@@ -14,12 +14,12 @@ namespace TIZSoft.Database
 		{
 			//CreateTable<TableExample>();
 			//CreateIndex(nameof(TableExample), new []{"owner", "name", "amount"});
-			string query = "SELECT * FROM " + nameof(TableExample);
-			IEnumerable<TableExample> result = Query<TableExample>(query);
-			foreach (var row in result)
-			{
-				logger.Log( LogLevel.Info, row.name);
-			}
+			//string query = "SELECT * FROM " + nameof(TableExample);
+			//IEnumerable<TableExample> result = Query<TableExample>(query);
+			//foreach (var row in result)
+			//{
+			//	logger.Log( LogLevel.Info, row.name);
+			//}
 		}
 		
 		[DevExtMethods("CreateDefaultDataPlayer")]

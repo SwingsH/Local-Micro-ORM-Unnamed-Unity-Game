@@ -5,7 +5,7 @@ using Dapper.Contrib.Extensions;
 [Table("user")]
 public class UserSave
 {
-    [Key]
+    [PrimaryKey]
     [Colomn("serial_id")]
     public int Id { get; set; }
     [Colomn("guid")]

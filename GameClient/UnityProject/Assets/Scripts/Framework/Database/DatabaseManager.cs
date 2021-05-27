@@ -51,7 +51,8 @@ namespace TIZSoft.Database
 				_databaseType = databaseType;
 			}
 			
-			databaseLayer.OnValidate();
+			if(databaseLayer!= null)
+				databaseLayer.OnValidate();
 			
 			this.InvokeInstanceDevExtMethods(nameof(OnValidate));
 #endif

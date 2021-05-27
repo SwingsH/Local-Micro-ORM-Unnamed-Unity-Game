@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 
@@ -68,6 +69,16 @@ namespace TIZSoft.Extensions
 			}
 
 			return type;
+		}
+
+		public static T GetCustomAttributes<T>(MemberInfo p) where T : Attribute
+		{
+			T[] attrs = p.GetCustomAttributes(typeof(T), false) as T[];
+			if (attrs.Length > 0)
+			{
+				return attrs[0];
+			}
+			return default;
 		}
 	}
 }

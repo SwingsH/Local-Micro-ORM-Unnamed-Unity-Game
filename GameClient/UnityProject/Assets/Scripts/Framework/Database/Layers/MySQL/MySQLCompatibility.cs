@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using Dapper.Contrib.Extensions;
 using TIZSoft.Extensions;
 
 namespace TIZSoft.Database.MySQL
@@ -13,7 +14,7 @@ namespace TIZSoft.Database.MySQL
 		protected Dictionary<int, MySQLTableMapper> tableMaps = new Dictionary<int, MySQLTableMapper>();
 		protected Dictionary<int, MySqlParameter[]> mySQLParameters = new Dictionary<int, MySqlParameter[]>();
 		protected Dictionary<int, string> mySQLQueries = new Dictionary<int, string>();
-		
+
 		public MySQLTableMapper GetTableMapper<T>()
 		{
 			string tableName = typeof(T).Name;
@@ -138,9 +139,6 @@ namespace TIZSoft.Database.MySQL
 			
 		}
 				
-		
-		// BuildTableMapFromType
-		
 		protected MySQLTableMapper BuildTableMapFromType<T>()
 		{
 			
@@ -148,13 +146,14 @@ namespace TIZSoft.Database.MySQL
 			PropertyInfo[] pInfo;
 			Type t = typeof(T);
 			pInfo = t.GetProperties();
-			
-			MySQLTableMapper tableMap = new MySQLTableMapper(t, typeof(T).Name, pInfo.Length);
+
+			string tableName = TryGetTableName(typeof(T));
+			MySQLTableMapper tableMap = new MySQLTableMapper(t, tableName, pInfo.Length);
 
 			for (int i = 0; i < pInfo.Length; i++)
 			{
 				tableMap.rows[i] = new TableRowMapper();
-				tableMap.rows[i].name = pInfo[i].Name;
+				tableMap.rows[i].name = TryGetColumnName(pInfo[i]);
 				tableMap.rows[i].type = pInfo[i].PropertyType;
 				
 				if (IsPK(pInfo[i]) && !hasPrimary)
@@ -165,26 +164,22 @@ namespace TIZSoft.Database.MySQL
 			}
 			
 			return tableMap;
-		
 		}
 				
-		
-		// BuildTableMapFromObject
-		
 		protected MySQLTableMapper BuildTableMapFromObject(object obj)
 		{
-			
 			bool hasPrimary = false;			
 			PropertyInfo[] pInfo;
 			Type t = obj.GetType();
 			pInfo = t.GetProperties();
-			
-			MySQLTableMapper tableMap = new MySQLTableMapper(t, obj.GetType().Name, pInfo.Length);
+
+			string tableName = TryGetTableName(obj.GetType());
+			MySQLTableMapper tableMap = new MySQLTableMapper(t, tableName, pInfo.Length);
 			
 			for (int i = 0; i < pInfo.Length; i++)
 			{
 				tableMap.rows[i] = new TableRowMapper();
-				tableMap.rows[i].name = pInfo[i].Name;
+				tableMap.rows[i].name = TryGetColumnName(pInfo[i]);
 				tableMap.rows[i].type = pInfo[i].PropertyType;
 				
 				if (IsPK(pInfo[i]) && !hasPrimary)
@@ -192,19 +187,13 @@ namespace TIZSoft.Database.MySQL
 					tableMap.rows[i].primary = true;
 					hasPrimary = true;
 				}
-				
 			}
 			
 			return tableMap;
-		
 		}
-		
-		
-		// BuildConvertedParameters
 		
 		protected MySqlParameter[] BuildConvertedParameters(object[] args)
 		{
-			
 			MySqlParameter[] parameters = new MySqlParameter[args.Length];
 			
 			for (int i = 0; i < args.Length; i++)
@@ -213,10 +202,6 @@ namespace TIZSoft.Database.MySQL
 			return parameters;
 		
 		}
-		
-		
-		// BuildConvertedQuery
-		
 		protected string BuildConvertedQuery(string query)
 		{
 		
@@ -229,26 +214,44 @@ namespace TIZSoft.Database.MySQL
 			
 		}
 		
-		
-		// IsPK
-		
         protected bool IsPK (MemberInfo p)
 		{
 			return p.CustomAttributes.Any (x => x.AttributeType == typeof (PrimaryKeyAttribute));
 		}
 		
-        
-		// IsAutoInc
-		
-        protected  bool IsAutoInc (MemberInfo p)
+        protected bool IsAutoInc (MemberInfo p)
 		{
 			return p.CustomAttributes.Any (x => x.AttributeType == typeof (AutoIncrementAttribute));
 		}
-		
-		// TODO: No Collate
-        
-		
-		
-	}
 
+		/// <summary>
+		/// todo : SQLite as similar features about "TableAttribute"
+		/// </summary>
+		protected string TryGetColumnName(MemberInfo p)
+        {
+			string result = p.Name;
+
+			ColomnAttribute attr = TypeExtensions.GetCustomAttributes<ColomnAttribute>(p);
+			if(attr != default(ColomnAttribute) && attr.ColName != string.Empty)
+            {
+				result = attr.ColName;
+			}
+			return result;
+		}
+
+		/// <summary>
+		/// todo : SQLite as similar features about "TableAttribute"
+		/// </summary>
+		protected string TryGetTableName(MemberInfo p)
+		{
+			string result = p.Name;
+
+			TableAttribute attr = TypeExtensions.GetCustomAttributes<TableAttribute>(p);
+			if (attr != default(TableAttribute) && attr.Name != string.Empty)
+			{
+				result = attr.Name;
+			}
+			return result;
+		}
+	}
 }

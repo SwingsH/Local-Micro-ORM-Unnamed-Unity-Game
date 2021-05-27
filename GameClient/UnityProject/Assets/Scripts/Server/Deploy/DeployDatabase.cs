@@ -33,11 +33,12 @@ public class DeployDatabase : MonoBehaviorSingleton<DeployDatabase>
 
     void Start()
     {
-        databaseManager = new DatabaseManager();
+        databaseManager = gameObject.AddComponent<DatabaseManager>();
         databaseManager.databaseLayer = deploySettings.mysqlLayer;
         deploySettings.mysqlLayer.FetchSettingFromEditorPrefs();
-    }
 
+        //BatchCreateTable();
+    }
     public virtual void BatchCreateTable() 
     {
         if (deploySettings == null)

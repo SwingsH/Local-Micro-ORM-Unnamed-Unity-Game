@@ -4,7 +4,7 @@ using Dapper.Contrib.Extensions;
 
 namespace TIZSoft.Database
 {
-	[Table("table-example")]
+	[Table("table_example")]
 	partial class TableExample
 	{
 		[PrimaryKey]
