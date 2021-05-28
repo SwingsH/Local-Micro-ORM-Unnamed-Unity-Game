@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using Dapper.Contrib.Extensions;
 using TIZSoft.Extensions;
+using TIZSoft.Database.Attributes;
 
 namespace TIZSoft.Database.MySQL
 {
@@ -65,7 +66,6 @@ namespace TIZSoft.Database.MySQL
 			mySQLParameters.Add(hash, newParameters);
 			
 			return newParameters;
-			
 		}
 
 		public string GetConvertedQuery(string query)
@@ -230,9 +230,8 @@ namespace TIZSoft.Database.MySQL
 		protected string TryGetColumnName(MemberInfo p)
         {
 			string result = p.Name;
-
-			ColomnAttribute attr = TypeExtensions.GetCustomAttributes<ColomnAttribute>(p);
-			if(attr != default(ColomnAttribute) && attr.ColName != string.Empty)
+			ColumnAttribute attr = TypeExtensions.GetCustomAttributes<ColumnAttribute>(p);
+			if(attr != default(ColumnAttribute) && attr.ColName != string.Empty)
             {
 				result = attr.ColName;
 			}

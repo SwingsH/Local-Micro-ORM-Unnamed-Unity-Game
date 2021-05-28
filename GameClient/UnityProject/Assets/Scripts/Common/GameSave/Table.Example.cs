@@ -1,5 +1,5 @@
 ﻿
-using TIZSoft.Database.MySQL;
+using TIZSoft.Database.Attributes;
 using Dapper.Contrib.Extensions;
 
 namespace TIZSoft.Database

@@ -40,7 +40,7 @@ namespace TIZSoft
 			
 			sNewChecksum = CalculateMD5(filepath);
 		
-			sOldChecksum = PlayerPrefs.GetString(Constants.PlayerPrefsChecksum, "");
+			sOldChecksum = PlayerPrefs.GetString(Constants.PLAYER_PREFS_CHECK_SUM, "");
 			
 			if (string.IsNullOrWhiteSpace(sOldChecksum))
 				SetChecksum(filepath);
@@ -52,7 +52,7 @@ namespace TIZSoft
 		public static void SetChecksum(string filepath)
 		{
 			sNewChecksum = CalculateMD5(filepath);
-			PlayerPrefs.SetString(Constants.PlayerPrefsChecksum, sNewChecksum);
+			PlayerPrefs.SetString(Constants.PLAYER_PREFS_CHECK_SUM, sNewChecksum);
 		}
 		
 		public static string CalculateMD5(string filepath)

@@ -3,6 +3,7 @@
 using UnityEditor;
 using System.IO;
 using System;
+using TIZSoft;
 
 [InitializeOnLoad]
 public class EditorTools
@@ -25,15 +26,13 @@ public class EditorTools
 	[MenuItem("SwitchApp/Set to Client APP")]
 	public static void SwitchToClientApp()
 	{
-		PlayerSettings.companyName = "tizsoft";
-		PlayerSettings.productName = "volleyballjr.s2";
-		PlayerSettings.applicationIdentifier = "com.tizsoft.volleyballjr.s2";
+		PlayerSettings.companyName = Constants.APPLICATION_COMPANY_NAME;
+		PlayerSettings.productName = Constants.APPLICATION_PROJECT_NAME;
+		PlayerSettings.applicationIdentifier = Constants.APPLICATION_IDENTIFIER;
 		PlayerSettings.bundleVersion = "1.0.0";
 		PlayerSettings.Android.bundleVersionCode = 200; //Android specific
 		PlayerSettings.Android.keystoreName = GetKeyStorePath();
 		PlayerSettings.iOS.buildNumber = "200";
-
-		PlayerSettings.applicationIdentifier = "com.tizsoft.speedrunning";
 
 		RemoveDefineAllBuildTarget();
 		BuildTargetGroup[] targetGroups = allTargetGroups;

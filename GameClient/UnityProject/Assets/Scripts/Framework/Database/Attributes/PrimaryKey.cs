@@ -1,6 +1,6 @@
 using System;
 
-namespace TIZSoft.Database
+namespace TIZSoft.Database.Attributes
 {
     /// <summary>
     /// [TableAttribute] : defined in "SQLite", "Dapper.Contrib.Extention", use Dapper first
@@ -9,14 +9,4 @@ namespace TIZSoft.Database
 
     [AttributeUsage(AttributeTargets.Property)]
     public class PrimaryKeyAttribute : Attribute { }
-
-    [AttributeUsage(AttributeTargets.Property)]
-    public class AutoIncrementAttribute : Attribute { }
-
-    [AttributeUsage(AttributeTargets.Property)]
-    public class ColomnAttribute : Attribute 
-    {
-        public ColomnAttribute(string columnName) { ColName = columnName; }
-        public string ColName { get; set; }
-    }
 }

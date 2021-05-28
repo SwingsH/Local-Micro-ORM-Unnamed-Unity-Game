@@ -31,7 +31,6 @@ namespace UnityHTTPServer
 
             if (method == null) return null;
             return (ActionResult)method.Invoke(this, new object[] { });
-
         }
     }
 }

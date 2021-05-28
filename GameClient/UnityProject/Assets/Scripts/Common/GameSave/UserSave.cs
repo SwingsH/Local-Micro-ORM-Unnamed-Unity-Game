@@ -1,25 +1,25 @@
 using System;
-using TIZSoft.Database;
+using TIZSoft.Database.Attributes;
 using Dapper.Contrib.Extensions;
 
 [Table("user")]
 public class UserSave
 {
     [PrimaryKey]
-    [Colomn("serial_id")]
+    [Column("serial_id")]
     public int Id { get; set; }
-    [Colomn("guid")]
+    [Column("guid")]
     public string Guid { get; set; }
-    [Colomn("user_name")]
+    [Column("user_name")]
     public string Name { get; set; }
-    [Colomn("screen_name")]
+    [Column("screen_name")]
     public string ScreenName { get; set; }
-    [Colomn("create_time")]
+    [Column("create_time")]
     public DateTime CreateDatetime { get; set; }
-    [Colomn("lastlogin_time")]
+    [Column("lastlogin_time")]
     public DateTime LastLoginDatetime { get; set; }
-    [Colomn("lastlogin_device_name")]
+    [Column("lastlogin_device_name")]
     public string LastLoginDeviceName { get; set; }
-    [Colomn("lastlogin_device_lang")]
+    [Column("lastlogin_device_lang")]
     public string LastLoginDeviceLang { get; set; }
 }

@@ -91,11 +91,28 @@ namespace TIZSoft.Database.MySQL
 			return mysqlCompat.ConvertReader<T>(reader);
 		}
 
-		public IEnumerable<T> Query<T>( string query)
+		/// <summary>
+		/// Using Dapper, todo: append Query functions with Dapper
+		/// </summary>
+		public IEnumerable<T> RapidQuery<T>(string query, object args)
 		{
 			IDbConnection conn = NewConnection();
 			conn.Open();
-			return conn.Query<T>(query);
+			return conn.Query<T>(query, args);
+		}
+
+		public T RapidQuerySingle<T>(string query, object args)
+		{
+			IDbConnection conn = NewConnection();
+			conn.Open();
+			return conn.QuerySingleOrDefault<T>(query, args);
+		}
+
+		public int RapidExecute<T>(string query, object args)
+        {
+			IDbConnection conn = NewConnection();
+			conn.Open();
+			return conn.Execute(query, args);
 		}
 
 		public override T FindWithQuery<T>(string query, params object[] args)
