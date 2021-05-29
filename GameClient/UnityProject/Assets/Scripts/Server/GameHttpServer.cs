@@ -5,15 +5,81 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityHTTPServer;
 using System.IO;
+using TIZSoft.UnityHTTP;
+using Newtonsoft.Json.Linq;
+using TIZSoft.Utils.Log;
+using TIZSoft.UnknownGame.Common.API;
 
 namespace HttpServer
 {
-    public class ExampleServer : UnityHTTPServer.HttpServer
+    public delegate JObject ProtocolMapping(JObject data);
+
+    public class ApiMetaData
     {
-        public ExampleServer(string ipAddress, int port)
+        public string ApiUrl;
+        public Type ApiRequestClass;
+        public ProtocolMapping ProtocolMethod;
+    }
+    public class GameHttpServer : UnityHTTPServer.HttpServer
+    {
+        static readonly Logger logger = LogManager.Default.FindOrCreateLogger<GameHttpServer>();
+
+        protected Dictionary<string, ApiMetaData> protocolMapping;
+        public GameHttpServer(string ipAddress, int port)
             : base(ipAddress, port)
         {
 
+        }
+
+        public void Initialize()
+        {
+            InitApiEntries();
+
+            RegisterProtocol(typeof(UserRequest),           ApiUser.GetUserInfo);
+            RegisterProtocol(typeof(UserNameChangeRequest), ApiUser.ChangeUserName);
+            RegisterProtocol(typeof(UserTeamChangeRequest), ApiUser.ChangeUserTeamName);
+        }
+
+        private void InitApiEntries()
+        {
+            protocolMapping = new Dictionary<string, ApiMetaData>();
+
+            List<Type> apiClasses = TIZSoft.Extensions.TypeExtensions.GetTypesHasAttribute<EntryPointAttribute>();
+            ApiMetaData meta = default;
+            foreach (var api in apiClasses)
+            {
+                object[] attrs = api.GetCustomAttributes(typeof(EntryPointAttribute), false);
+                EntryPointAttribute entry = attrs[0] as EntryPointAttribute;
+                string tokenUrl = NormalizeUrlToToken(entry.partialUrl);
+                //logger.Debug("NormalizeUrlToToken: "+ tokenUrl);
+                meta = new ApiMetaData {
+                    ApiUrl = tokenUrl,
+                    ApiRequestClass = api,
+                    ProtocolMethod = default
+                };
+
+                protocolMapping.Add(tokenUrl, meta);
+            }
+        }
+
+        protected void RegisterProtocol(Type apiClass, ProtocolMapping protocol)
+        {
+            ApiMetaData myMeta = protocolMapping.Where(meta => meta.Value.ApiRequestClass == apiClass).FirstOrDefault().Value;
+            if(myMeta==null)
+            {
+                logger.Log(LogLevel.Error, " RegisterProtocol failed. " + apiClass.Name);
+                return;
+            }
+            myMeta.ProtocolMethod = protocol;
+            //[user/my] [UserRequest] [GetUserInfo] 
+            logger.Log(LogLevel.Debug, string.Format("RegProto : [{0}] [{1}] [{2}] ", myMeta.ApiUrl, myMeta.ApiRequestClass.Name, myMeta.ProtocolMethod.Method.Name));
+        }
+
+        protected string NormalizeUrlToToken(string Url)
+        {
+            char[] charsToTrim = { ' ', '\'' };
+            Url = Url.Trim(charsToTrim).Replace('\'', '/').Replace("//", "/");
+            return Url;
         }
 
         public override void OnPost(ServerSideHttpRequest request, HttpResponse response)
@@ -33,7 +99,6 @@ namespace HttpServer
 
         public override void OnGet(ServerSideHttpRequest request, HttpResponse response)
         {
-
             // url type 1: "http://localhost:4050/assets/styles/style.css" response specific file "/assets/styles/style.css"
             // url type 2: "http://localhost:4050/assets/styles/" pages. response index file "/assets/styles/style.index"
             // url type 3: response the directory list.
@@ -91,16 +156,16 @@ namespace HttpServer
 
         private string ListDirectory(string requestDirectory, string requestURL)
         {
-            //列举子目录
+            //list subfolders
             var folders = requestURL.Length > 1 ? new string[] { "../" } : new string[] { };
             folders = folders.Concat(Directory.GetDirectories(requestDirectory)).ToArray();
             var foldersList = ConvertPath(folders);
 
-            //列举文件
+            //list files
             var files = Directory.GetFiles(requestDirectory);
             var filesList = ConvertPath(files);
 
-            //构造HTML
+            //build HTML
             StringBuilder builder = new StringBuilder();
             builder.Append(string.Format("<html><head><title>{0}</title></head>", requestDirectory));
             builder.Append(string.Format("<body><h1>{0}</h1><br/><ul>{1}{2}</ul></body></html>",

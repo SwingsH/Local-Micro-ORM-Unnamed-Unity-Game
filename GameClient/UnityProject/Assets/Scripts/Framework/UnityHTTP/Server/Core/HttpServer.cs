@@ -6,8 +6,7 @@ using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
-//using System.Runtime.InteropServices;
-
+using System.Collections;
 namespace UnityHTTPServer
 {
     /// <summary>
@@ -22,6 +21,9 @@ namespace UnityHTTPServer
         public Protocols Protocol { get; private set; }
         private TcpListener serverListener;
         public ILogger Logger { get; set; }
+        public Action<ServerSideHttpRequest> RequestProcessingHandler { get; set; }
+        public Action<HttpResponse> ResponseProcessingHandler { get; set; }
+
         private X509Certificate serverCertificate = null;
         private HttpServer(IPAddress ipAddress, int port, string root)
         {
@@ -83,7 +85,6 @@ namespace UnityHTTPServer
             return SetSSL(X509Certificate.CreateFromCertFile(certificate));
         }
 
-
         public HttpServer SetSSL(X509Certificate certifiate)
         {
             this.serverCertificate = certifiate;
@@ -123,13 +124,24 @@ namespace UnityHTTPServer
             Stream clientStream = handler.GetStream();
 
             if (serverCertificate != null) clientStream = ProcessSSL(clientStream);
-            if (clientStream == null) return;
+            if (clientStream == null)
+            {
+                return;
+            }
 
             ServerSideHttpRequest request = new ServerSideHttpRequest(clientStream);
             request.Logger = Logger;
+            if(RequestProcessingHandler != null) // require addtional processing
+            {
+                RequestProcessingHandler.Invoke(request);
+            }
 
             HttpResponse response = new HttpResponse(clientStream);
             response.Logger = Logger;
+            if (ResponseProcessingHandler != null) // require addtional processing
+            {
+                ResponseProcessingHandler.Invoke(response);
+            }
 
             switch (request.Method)
             {

@@ -9,16 +9,19 @@ using UnityHTTPServer;
 using HttpServer;
 using UnityEngine;
 using System.Threading;
+using TIZSoft;
 
 namespace UnityHTTPServer
 {
-    public class Program : MonoBehaviour
+    public class ServerMain : MonoBehaviour
     {
+        const string GAME_SERVER_ROOT_PATH = "wwwroot";
         Thread serverThread;
         void Start()
         {
-            ExampleServer server = new ExampleServer("127.0.0.1", 4050);
-            server.SetRoot(string.Format("{0}/{1}/", Application.dataPath, "wwwroot"));
+            GameHttpServer server = new GameHttpServer(Constants.GAME_SERVER_ENTRANCE_IPADDRESS, Constants.GAME_SERVER_ENTRANCE_PORT);
+            server.Initialize();
+            server.SetRoot(string.Format("{0}/{1}/", Application.dataPath, GAME_SERVER_ROOT_PATH));
             server.Logger = new ConsoleLogger();
             serverThread = new Thread( new ThreadStart(server.Start));
             serverThread.Start();

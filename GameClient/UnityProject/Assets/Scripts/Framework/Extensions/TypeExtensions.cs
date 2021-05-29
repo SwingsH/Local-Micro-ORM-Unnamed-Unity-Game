@@ -80,5 +80,21 @@ namespace TIZSoft.Extensions
 			}
 			return default;
 		}
+
+		public static List<Type> GetTypesHasAttribute<T>()
+		{
+			Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+			List<Type> types = new List<Type>();
+			foreach (var assembly in assemblies) {
+				foreach (Type type in assembly.GetTypes())
+				{
+					if (type.GetCustomAttributes(typeof(T), true).Length > 0)
+					{
+						types.Add(type);
+					}
+				}
+			}
+			return types;
+		}
 	}
 }

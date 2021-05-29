@@ -10,8 +10,5 @@ public class UserResponse //: Response
 
 //	public AppOptionModel AppOption { get; set; }
 
-	/// <summary>
-	/// シーズン2リリースされているか
-	/// </summary>
 	public bool IsSeason2Released { get; set; }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.IO;
 using System.Text.RegularExpressions;
+using TIZSoft.Utils.Log;
 
 namespace UnityHTTPServer
 {
