@@ -4,6 +4,7 @@ using UnityEngine;
 using TIZSoft.Services;
 using TIZSoft.UnityHTTP.Client;
 using TIZSoft.UnknownGame.Common.API;
+using TIZSoft;
 
 public class TestService : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class TestService : MonoBehaviour
         ClientWebServices webService = new ClientWebServices(httpManager, hostManager);
 
         ClientHTTPNetwork clientHTTPNetwork = new ClientHTTPNetwork();
-        GameServices tempService = new GameServices(webService, "volleyballjr", clientHTTPNetwork);
+        GameServices tempService = new GameServices(webService, Constants.APPLICATION_PROJECT_NAME, clientHTTPNetwork);
 
         clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://127.0.0.1:4050/");
 

@@ -79,7 +79,6 @@ namespace UnityHTTPServer
             }
         }
 
-
         public HttpServer SetSSL(string certificate)
         {
             return SetSSL(X509Certificate.CreateFromCertFile(certificate));
@@ -131,17 +130,11 @@ namespace UnityHTTPServer
 
             ServerSideHttpRequest request = new ServerSideHttpRequest(clientStream);
             request.Logger = Logger;
-            if(RequestProcessingHandler != null) // require addtional processing
-            {
-                RequestProcessingHandler.Invoke(request);
-            }
+            //OnRequestProcess(request); // require addtional processing
 
             HttpResponse response = new HttpResponse(clientStream);
             response.Logger = Logger;
-            if (ResponseProcessingHandler != null) // require addtional processing
-            {
-                ResponseProcessingHandler.Invoke(response);
-            }
+            //OnResponseProcess(response); // require addtional processing
 
             switch (request.Method)
             {
@@ -180,17 +173,11 @@ namespace UnityHTTPServer
         {
             if (Logger != null) Logger.Log(message);
         }
-        public virtual void OnGet(ServerSideHttpRequest request, HttpResponse response)
-        {
 
-        }
-        public virtual void OnPost(ServerSideHttpRequest request, HttpResponse response)
-        {
-
-        }
-        public virtual void OnDefault(ServerSideHttpRequest request, HttpResponse response)
-        {
-
-        }
+        public virtual void OnGet(ServerSideHttpRequest request, HttpResponse response) { }
+        public virtual void OnPost(ServerSideHttpRequest request, HttpResponse response) { }
+        public virtual void OnDefault(ServerSideHttpRequest request, HttpResponse response) { }
+        //public virtual void OnRequestProcess(ServerSideHttpRequest request) { }
+        //public virtual void OnResponseProcess(HttpResponse response) { }
     }
 }
