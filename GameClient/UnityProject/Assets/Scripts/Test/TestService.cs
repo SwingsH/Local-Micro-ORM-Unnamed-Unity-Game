@@ -23,7 +23,8 @@ public class TestService : MonoBehaviour
         ClientWebServices webService = new ClientWebServices(httpManager, hostManager);
 
         ClientHTTPNetwork clientHTTPNetwork = new ClientHTTPNetwork();
-        GameServices tempService = new GameServices(webService, Constants.APPLICATION_PROJECT_NAME, clientHTTPNetwork);
+        //GameServices tempService = new GameServices(webService, Constants.APPLICATION_PROJECT_NAME, clientHTTPNetwork);
+        GameServices tempService = new GameServices(webService, string.Empty, clientHTTPNetwork);
 
         clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://127.0.0.1:4050/");
 
@@ -32,7 +33,7 @@ public class TestService : MonoBehaviour
 
     public void OnResponse(ClientHttpRequest request)
     {
-        Debug.Log("request");
+        Debug.Log("request: [" + request.GetText() + "]");
     }
 
     // Update is called once per frame

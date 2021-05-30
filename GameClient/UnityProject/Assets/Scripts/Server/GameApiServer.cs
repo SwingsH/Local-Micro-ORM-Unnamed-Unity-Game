@@ -110,8 +110,12 @@ namespace HttpServer
                     logger.Log(LogLevel.Error, string.Format("[{0}] not defined a api method. ", tokenUrl));
                     return;
                 }
-                logger.Debug(string.Format("Try to call method [{0}] [{1}]", tokenUrl, protocolMapping[tokenUrl].ProtocolMethod.Method.Name));
+                //logger.Debug(string.Format("Try to call method [{0}] [{1}]", tokenUrl, protocolMapping[tokenUrl].ProtocolMethod.Method.Name));
                 protocolMapping[tokenUrl].ProtocolMethod.Invoke(jsonStr);
+                //response.Body = " just test a response.Body from game server !";
+                response = response.FromText(" just test a response.Body from game server !");
+                UnityEngine.Debug.Log(response.Body);
+                //response.Content_Type = "text/html; charset=UTF-8";
             }
 
             //// response forbidden 404
@@ -144,6 +148,7 @@ namespace HttpServer
             //        response.Content_Type = "text/html; charset=UTF-8";
             //    }
             //}
+
             response.Send();
         }
 

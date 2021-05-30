@@ -50,7 +50,7 @@ namespace TIZSoft.Services
             {
                 case API_METHOD.HTTP_GET:
                     string apiURL = request.partialURL;
-                    Get(ServerType.GameHost, apiURL, this.WebService, response);
+                    Get(ServerType.GameHost, apiURL, null, response);
                     break;
                 case API_METHOD.HTTP_PUT:
                     break;

@@ -74,12 +74,12 @@ namespace TIZSoft.UnityHTTP.Client
             get { return currentGroupId; }
         }
 
-        public IObservable<ChangedEventArgs> ServerAdded
+        public UniRx.IObservable<ChangedEventArgs> ServerAdded
         {
             get { return serverAdded.AsObservable(); }
         }
 
-        public IObservable<ChangedEventArgs> ServerChanged
+        public UniRx.IObservable<ChangedEventArgs> ServerChanged
         {
             get { return serverChanged.AsObservable(); }
         }

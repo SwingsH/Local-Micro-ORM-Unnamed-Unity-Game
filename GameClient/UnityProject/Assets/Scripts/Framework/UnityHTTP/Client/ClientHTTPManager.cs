@@ -136,7 +136,8 @@ namespace TIZSoft.UnityHTTP.Client
 
                 try
                 {
-                    httpRequest.OnProgressUpdated.Invoke(httpRequest, requestAyncOp.progress);
+                    if(httpRequest.OnProgressUpdated!= null)
+                        httpRequest.OnProgressUpdated.Invoke(httpRequest, requestAyncOp.progress);
                 }
                 catch (Exception e)
                 {
@@ -182,7 +183,8 @@ namespace TIZSoft.UnityHTTP.Client
                 logger.Debug("Sending \"{0}\"...{1:P2}", request.Uri, progress);
                 try
                 {
-                    request.OnProgressUpdated.Invoke(request, progress);
+                    if(request!= null && request.OnProgressUpdated!= null)
+                        request.OnProgressUpdated.Invoke(request, progress);
                 }
                 catch (Exception e)
                 {
