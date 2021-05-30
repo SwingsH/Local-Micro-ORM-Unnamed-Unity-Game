@@ -7,10 +7,7 @@ using System.Text;
 
 namespace TIZSoft.Extensions
 {
-    /// <summary>
-    /// Nick 20171016
-    /// </summary>
-    public class NkListGroupCtrl<T> : List<T>
+    public class ListGroupCtrl<T> : List<T>
     {
         protected       string          activeObjName;
         protected       int             activeIdx;

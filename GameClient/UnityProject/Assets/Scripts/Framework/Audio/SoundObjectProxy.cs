@@ -1,6 +1,3 @@
-#define B0193 // [B0193]使設定音樂off狀態下練習skip可正常運作 Jessie 20180530
-#define Q9994 // 釋放BGM記憶體 Nick 20180612
-
 using System;
 using UnityEngine;
 
@@ -87,20 +84,15 @@ namespace TIZSoft.Audio
             actual.FadingStop(duration);
         }
 
-#if Q9994 // 釋放BGM記憶體 Nick 20180612
         public void ClearClip()
         {
             actual.ClearClip();
         }
-#endif //Q9994
 
-#if B0193 //使設定音樂off狀態下練習skip可正常運作 Jessie 20180530
-#else
         public void Play(Action onFinished)
         {
             actual.Play(onFinished);
         }
-#endif //B0193
 
         public float GetTime()
         {

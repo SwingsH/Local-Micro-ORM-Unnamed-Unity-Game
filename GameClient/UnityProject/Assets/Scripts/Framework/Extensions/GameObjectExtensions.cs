@@ -101,7 +101,7 @@ namespace TIZSoft.Extensions
         }
 
         /// <summary>
-        /// 取得此物件所屬Child子節點Compnent Nick 20171012
+        /// 取得此物件所屬Child子節點Compnent
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="RootObj">根節點物件</param>

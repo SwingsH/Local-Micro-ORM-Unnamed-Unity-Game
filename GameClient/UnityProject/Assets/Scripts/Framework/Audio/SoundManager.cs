@@ -1,6 +1,4 @@
-﻿#define Q9994 // 釋放BGM記憶體 Nick 20180612
-
-using System;
+﻿using System;
 using TIZSoft.SaveData;
 using UniRx;
 using UnityEngine;
@@ -162,7 +160,6 @@ namespace TIZSoft.Audio
             throw new InvalidOperationException("SoundManager not been initialized.");
         }
 
-#if Q9994 // 釋放BGM記憶體 Nick 20180612
         public void ReturnBgmObject()
         {
             if (bgmObjectPool == null)
@@ -186,6 +183,5 @@ namespace TIZSoft.Audio
 
             bgmObjectPool.Clear();
         }
-#endif //Q9994
     }
 }

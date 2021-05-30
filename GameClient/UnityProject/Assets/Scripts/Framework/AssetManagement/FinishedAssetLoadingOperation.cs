@@ -1,5 +1,3 @@
-#define Q9996 // UnloadAssetBundle Nick 20180611
-
 using System;
 using System.Collections.Generic;
 using TIZSoft.Utils.Log;

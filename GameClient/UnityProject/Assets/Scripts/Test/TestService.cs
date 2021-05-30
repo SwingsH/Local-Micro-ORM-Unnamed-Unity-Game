@@ -12,19 +12,19 @@ public class TestService : MonoBehaviour
     void Start()
     {
         ClientHttpManager httpManager = new ClientHttpManager();
-        ClientHostManager.Settings settings = new ClientHostManager.Settings {
-            Hosts = new List<ClientHostManager.Settings.Entry> {
-                new ClientHostManager.Settings.Entry { HostId = "suck_hostid", Host = "http://app.domain.com" },
-                new ClientHostManager.Settings.Entry { HostId = "suck_hostid_2", Host = "http://app.domain.com" }
+        ClientHostConfigure.Settings settings = new ClientHostConfigure.Settings {
+            Hosts = new List<ClientHostConfigure.Settings.Entry> {
+                new ClientHostConfigure.Settings.Entry { HostId = "suck_hostid", Host = "http://app.domain.com" },
+                new ClientHostConfigure.Settings.Entry { HostId = "suck_hostid_2", Host = "http://app.domain.com" }
             },
             DefaultHostId = "suck_hostid"
         };
-        ClientHostManager hostManager = new ClientHostManager(settings);
-        ClientWebServices webService = new ClientWebServices(httpManager, hostManager);
+        ClientHostConfigure hostManager = new ClientHostConfigure(settings);
+        ClientHttpSender webService = new ClientHttpSender(httpManager, hostManager);
 
         ClientHTTPNetwork clientHTTPNetwork = new ClientHTTPNetwork();
         //GameServices tempService = new GameServices(webService, Constants.APPLICATION_PROJECT_NAME, clientHTTPNetwork);
-        GameServices tempService = new GameServices(webService, string.Empty, clientHTTPNetwork);
+        GameApiServices tempService = new GameApiServices(webService, string.Empty, clientHTTPNetwork);
 
         clientHTTPNetwork.AddServer("suck_groupname", ServerType.GameHost, "http://127.0.0.1:4050/");
 

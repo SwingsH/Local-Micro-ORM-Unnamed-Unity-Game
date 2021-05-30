@@ -1,6 +1,4 @@
-﻿#define Q9997 // Nick 20180608
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TIZSoft.AssetManagement;
@@ -263,8 +261,6 @@ namespace TIZSoft
             return string.Concat(entry.DirectoryName, assetBundleName).ToLower();
         }
 
-
-#if Q9997 //  Nick 20180608
         public void UnloadAsset(Object Obj)
         {
             assetManager.UnloadAsset(Obj);
@@ -278,7 +274,6 @@ namespace TIZSoft
 
             assetManager.UnloadAssetBundle(sAssetBundleName);
         }
-#endif //Q9997
     }
 }
 

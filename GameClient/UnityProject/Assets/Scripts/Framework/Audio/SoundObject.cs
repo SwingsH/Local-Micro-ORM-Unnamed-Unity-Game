@@ -186,21 +186,23 @@ namespace TIZSoft.Audio
             }
         }
 
-        //public void Play(Action onFinished)
-        //{
-        //    state = State.Playing;
+        public void Play(Action onFinished)
+        {
+            state = State.Playing;
 
-        //    if (lastClipName == this.clipName && AudioSource.clip != null)
-        //        PlayInternal(onFinished);
+            if (lastClipName == this.clipName && AudioSource.clip != null)
+                //PlayInternal(onFinished);
+                PlayInternal();
 
-        //    else if (!string.IsNullOrEmpty(clipName))
-        //        new SoundObjectLoader(this).Subscribe(_ => PlayInternal(onFinished));
-        //    else
-        //    {
-        //        logger.Error("No AudioClip or clip name.");
-        //        state = State.Stopped;
-        //    }
-        //}
+            else if (!string.IsNullOrEmpty(clipName))
+                //new SoundObjectLoader(this).Subscribe(_ => PlayInternal(onFinished));
+                new SoundObjectLoader(this).Subscribe(_ => PlayInternal());
+            else
+            {
+                logger.Error("No AudioClip or clip name.");
+                state = State.Stopped;
+            }
+        }
 
         public void Pause()
         {

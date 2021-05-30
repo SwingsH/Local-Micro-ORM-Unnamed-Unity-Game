@@ -6,7 +6,7 @@ namespace TIZSoft.UnityHTTP.Client
     /// <summary>
     /// 表示一個 Web Service，提供基礎 HTTP 通訊實作。
     /// </summary>
-    public class ClientWebServices
+    public class ClientHttpSender
     {
         /// <summary>
         /// Gets the HTTP manager.
@@ -18,9 +18,9 @@ namespace TIZSoft.UnityHTTP.Client
         /// Gets the host manager.
         /// </summary>
         /// <value>The host manager.</value>
-        public ClientHostManager HostManager { get; private set; }
+        public ClientHostConfigure HostManager { get; private set; }
 
-        public ClientWebServices(ClientHttpManager httpManager, ClientHostManager hostManager)
+        public ClientHttpSender(ClientHttpManager httpManager, ClientHostConfigure hostManager)
         {
             HttpManager = httpManager;
             HostManager = hostManager;

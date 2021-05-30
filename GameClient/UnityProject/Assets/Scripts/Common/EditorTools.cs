@@ -22,8 +22,6 @@ public class EditorTools
 			BuildTargetGroup.Standalone,
 		};
 
-//#if !DEFINE_CLIENT_APP
-	[MenuItem("SwitchApp/Set to Client APP")]
 	public static void SwitchToClientApp()
 	{
 		PlayerSettings.companyName = Constants.APPLICATION_COMPANY_NAME;
@@ -40,8 +38,6 @@ public class EditorTools
 			AddDefine(targetGroup, DEFINE_CLIENT_APP);
 	}
 
-//#elif !DEFINE_SERVER_APP
-    [MenuItem("SwitchApp/Set to Server APP")]
 	public static void SwitchToServerApp()
 	{
 		RemoveDefineAllBuildTarget();
@@ -50,7 +46,6 @@ public class EditorTools
 			AddDefine(targetGroup, DEFINE_SERVER_APP);
 
 	}
-//#endif
 
 	static void RemoveDefineAllBuildTarget()
 	{

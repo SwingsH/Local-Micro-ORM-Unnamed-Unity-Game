@@ -4,14 +4,10 @@ namespace TIZSoft.UnknownGame
 {
     public class ApiHeaderCreator
     {
-        //readonly ViolinSave violinSave;
-        //readonly User localUser;
-
-        //public ApiHeaderCreator(ViolinSave violinSave, User localUser)
         public ApiHeaderCreator()
         {
             //this.localUser = localUser;
-            //this.violinSave = violinSave;
+            //this.Save = Save;
         }
 
         public IEnumerable<KeyValuePair<string, string>> CreateHeaders()

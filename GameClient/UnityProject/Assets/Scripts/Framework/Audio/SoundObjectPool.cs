@@ -1,6 +1,4 @@
-﻿#define Q9994 // 釋放BGM記憶體 Nick 20180612
-
-using UniRx.Toolkit;
+﻿using UniRx.Toolkit;
 using UnityEngine;
 
 namespace TIZSoft.Audio
@@ -32,7 +30,6 @@ namespace TIZSoft.Audio
 
         protected override void OnBeforeReturn(SoundObject instance)
         {
-#if Q9994 // 釋放BGM記憶體 Nick 20180612
             if (instance == null)
                 return;
 
@@ -44,13 +41,11 @@ namespace TIZSoft.Audio
                 instance.AudioSource.clip = null;
             }
             instance.transform.localPosition = Vector3.zero;
-#else
             base.OnBeforeReturn(instance);
 
             instance.AudioSource.Stop();
             instance.AudioSource.clip = null;
             instance.transform.localPosition = Vector3.zero;
-#endif //Q9994
         }
     }
 }

@@ -7,7 +7,7 @@ namespace TIZSoft.UnityHTTP.Client
     /// <summary>
     /// 表示一個 host 管理器，提供 key-value 模式的 host 管理。
     /// </summary>
-    public class ClientHostManager
+    public class ClientHostConfigure
     {
         [Serializable]
         public class Settings
@@ -29,7 +29,7 @@ namespace TIZSoft.UnityHTTP.Client
             public List<Entry> Hosts;
         }
 
-        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<ClientHostManager>();
+        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<ClientHostConfigure>();
 
         readonly Dictionary<string, string> hosts = new Dictionary<string, string>();
 
@@ -71,12 +71,12 @@ namespace TIZSoft.UnityHTTP.Client
             get { return hosts.Count; }
         }
 
-        public ClientHostManager()
+        public ClientHostConfigure()
         {
             // Do nothing.
         }
 
-        public ClientHostManager(Settings settings)
+        public ClientHostConfigure(Settings settings)
         {
             //ExceptionUtils.VerifyArgumentNull(settings, "settings");
             AddHosts(settings.Hosts);

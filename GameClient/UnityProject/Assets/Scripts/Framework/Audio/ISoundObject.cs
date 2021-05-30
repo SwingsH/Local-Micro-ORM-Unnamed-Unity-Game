@@ -1,6 +1,3 @@
-#define B0193 // [B0193]使設定音樂off狀態下練習skip可正常運作 Jessie 20180530
-#define Q9994 // 釋放BGM記憶體 Nick 20180612
-
 using System;
 using UnityEngine;
 
@@ -53,10 +50,7 @@ namespace TIZSoft.Audio
         /// </summary>
         void Play();
 
-#if B0193 //使設定音樂off狀態下練習skip可正常運作 Jessie 20180530
-#else
         void Play(Action onFinished);
-#endif //B0193
 
         /// <summary>
         /// 暫停播放。
@@ -83,8 +77,6 @@ namespace TIZSoft.Audio
         /// </summary>
         float GetTime();
 
-#if Q9994 // 釋放BGM記憶體 Nick 20180612
         void ClearClip();
-#endif //Q9994
     }
 }

@@ -11,10 +11,9 @@ namespace TIZSoft.AssetManagement
 {
     public class AssetBundleUpdater : MonoBehaviour
     {
-        //java.net.ConnectException: failed to connect to resource.dev.violin.tizsoft.com/60.250.154.158 (port 80): connect failed: EHOSTUNREACH (No route to host)
+        //java.net.ConnectException: failed to connect to resource.tizsoft.com/60.250.154.158 (port 80): connect failed: EHOSTUNREACH (No route to host)
         //有機會發生上面的錯誤，之後 webRequest 就卡死了，Progress 不會增加，也不會完成或中斷
-        //因為沒有訊息所以做簡單的防卡確認
-        //WWW 似乎也有機率發生，待確認
+        //因為沒有訊息所以做簡單的防卡確認, WWW 似乎也有機率發生，待確認
         struct DownloadingReqeust
         {
             public UnityWebRequestAsyncOperation AsyncOperation;

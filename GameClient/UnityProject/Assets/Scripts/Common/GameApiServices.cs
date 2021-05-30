@@ -9,21 +9,21 @@ using TIZSoft.Utils;
 
 namespace TIZSoft.Services
 {
-    public class GameServices
+    public class GameApiServices
     {
-        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<GameServices>();
+        static readonly Utils.Log.Logger logger = Utils.Log.LogManager.Default.FindOrCreateLogger<GameApiServices>();
 
         readonly Dictionary<ServerType, string> serverIds = new Dictionary<ServerType, string>();
 
         protected string Prefix { get; private set; } //e.g. "/projectname/account/create"，projectname is Prefix
 
-        protected ClientWebServices WebService { get; private set; }
+        protected ClientHttpSender WebService { get; private set; }
 
         protected ClientHTTPNetwork Network { get; set; }
 
-        public GameServices(ClientWebServices webService, string prefix, ClientHTTPNetwork network)
+        public GameApiServices(ClientHttpSender httpSender, string prefix, ClientHTTPNetwork network)
         {
-            WebService = webService;
+            WebService = httpSender;
             Prefix = prefix;
             Network = network;
 
