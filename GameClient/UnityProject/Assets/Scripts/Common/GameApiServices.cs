@@ -46,10 +46,11 @@ namespace TIZSoft.Services
 
         public void CallAPI<T>(API_METHOD method, T request, Action<ClientHttpRequest> response) where T : APIRequest
         {
+            string apiURL = request.partialURL;
+
             switch (method)
             {
                 case API_METHOD.HTTP_GET:
-                    string apiURL = request.partialURL;
                     Get(ServerType.GameHost, apiURL, null, response);
                     break;
                 case API_METHOD.HTTP_PUT:
@@ -57,6 +58,7 @@ namespace TIZSoft.Services
                 case API_METHOD.HTTP_HEAD:
                     break;
                 case API_METHOD.HTTP_POST:
+                    Post(ServerType.GameHost, apiURL, null, response);
                     break;
                 case API_METHOD.HTTP_CREATE:
                     break;

@@ -5,8 +5,13 @@ using System;
 using TIZSoft;
 using TIZSoft.UnityHTTP.Client;
 using TIZSoft.Versioning;
+using TIZSoft.SaveData;
 using TIZSoft.Services;
 using TIZSoft.UnknownGame;
+using TIZSoft.UnknownGame.SaveData;
+using TIZSoft.UnknownGame.IAP;
+using TIZSoft.AssetManagement;
+using AssetBundles;
 
 public class ClientMain : MonoBehaviorSingleton<ClientMain>
 {
@@ -31,8 +36,67 @@ public class ClientMain : MonoBehaviorSingleton<ClientMain>
     public ClientHttpSender HttpSender { get; private set; }
     public GameApiServices ApiService { get; private set; }
 
+    //Asset Management
+    #region Asset Management
+    [SerializeField]
+    [Tooltip("AssetManager 設定")]
+    AssetManagerSettings assetManagerSettings = new AssetManagerSettings
+    {
+        ShouldInitializeAutomatically = false,
+        AssetBundleSourceType = AssetBundleSourceType.Remote,
+        RelativePath = "/AssetBundles"
+    };
+
+    [SerializeField]
+    [Tooltip("專案的 assets 設定")]
+    AssetSettings assetProviderSettings;
+
+    [SerializeField]
+    [Tooltip("StreamingAssets AssetManager 設定")]
+    AssetManagerSettings streamingAssetManagerSettings = new AssetManagerSettings
+    {
+        ShouldInitializeAutomatically = true,
+        IsDevelopmentAssetBundleServer = false,
+        AssetBundleSourceType = AssetBundleSourceType.StreamingAssets,
+        RelativePath = "/AssetBundles"
+    };
+
+    [SerializeField]
+    [Tooltip("專案的 StreamingAssets assets 設定")]
+    AssetSettings streamingAssetProviderSettings;
+
+    [SerializeField]
+    AssetBundleManager assetBundleManager;
+
+    [SerializeField]
+    IAPPresenter iapPresenter;
+    [SerializeField]
+    VideoManager videoManager;
+
+    public IAPPresenter IAPPresenter { get { return iapPresenter; } }
+    public IAssetManager AssetManager { get; private set; }
+    public VideoManager VideoManager { get { return videoManager; } }
+    public AssetProvider AssetProvider { get; private set; }
+    [SerializeField]
+    AssetBundleManager streamingAssetBundleManager;
+    public IAssetManager StreamingAssetManager { get; private set; }
+    public AssetProvider StreamingAssetProvider { get; private set; }
+
+    #endregion Asset Management
+
+    // Local Storage
+    public PersistentDataStorage PersistentDataStorage { get; private set; }
+    public SaveDataStorage SaveDataStorage { get; private set; }
+    public UnknowGameSave UnknowGameSave { get; private set; }
+
+    [SerializeField] 
+    [Tooltip("存檔設定")]
+    UnknowGameSave.Settings unknowGameSaveSettings;
+
     // Game Logic
     public Game Game { get; private set; }
+    public SceneManager SceneManager { get; private set; }
+
 
     static bool isApplicationQuit;
     readonly ReactiveProperty<State> initializationState = new ReactiveProperty<State>();
@@ -44,7 +108,7 @@ public class ClientMain : MonoBehaviorSingleton<ClientMain>
     LogLevel logLevel = LogLevel.Debug;
 
     [SerializeField]
-    [Tooltip("�����]�w")]
+    [Tooltip("網路設定")]
     ClientHostConfigure.Settings hostSettings;
 
     void Start()
@@ -136,6 +200,8 @@ public class ClientMain : MonoBehaviorSingleton<ClientMain>
         //    Subscribe();
 
         //uiClickEffect = GameObject.FindObjectOfType<UIClickEffect>();
+
+        VerifyApi();
     }
 
     void Resolve()
@@ -155,19 +221,20 @@ public class ClientMain : MonoBehaviorSingleton<ClientMain>
         //// Asset Management
         //StreamingAssetManager = new AssetManager(streamingAssetManagerSettings, streamingAssetBundleManager);
         //StreamingAssetProvider = new AssetProvider(streamingAssetProviderSettings, StreamingAssetManager);
-        //AssetManager = new AssetManager(assetManagerSettings, assetBundleManager);
+        AssetManager = new AssetManager(assetManagerSettings, assetBundleManager);
         //AssetProvider = new AssetProvider(assetProviderSettings, AssetManager, StreamingAssetProvider);
 
-        //SceneManager = new SceneManager(assetManagerSettings.ScenePath, assetBundleManager);
+        SceneManager = new SceneManager(assetManagerSettings.ScenePath, assetBundleManager);
 
-        //PersistentDataStorage = new PersistentDataStorage();
-        //SaveDataStorage = new SaveDataStorage(PersistentDataStorage);
-        //Save = new Save(SaveSettings, SaveDataStorage);
+        PersistentDataStorage = new PersistentDataStorage();
+        SaveDataStorage = new SaveDataStorage(PersistentDataStorage);
+        UnknowGameSave = new UnknowGameSave(unknowGameSaveSettings, SaveDataStorage);
 
-        //HttpManager.RequestHeadersCreator = new HttpHeaderCreator(Save, Game.LocalUser.Value).CreateHeaders;
+        HttpManager.RequestCustomHeaders = new ApiHeaderCreator(UnknowGameSave, Game.LocalUser.Value).CreateHeaders;
 
-        //Game.Network.Value.CurrentGroupId.Value = HostConfigure.CurrentHostId;
-        //Game.Network.Value.SetDefaultCurrentServer(ServerType.Router, HostConfigure.CurrentHost);
+        Game.Network.Value.CurrentGroupId.Value = HostConfigure.CurrentHostId;
+        //Game.Network.Value.SetDefaultCurrentServer(ServerType.Router, HostConfigure.CurrentHost);　// No router in develop phase
+        Game.Network.Value.SetDefaultCurrentServer(ServerType.GameHost, HostConfigure.CurrentHost);　// No router in develop phase
 
         //Common.Dialog.DefaultCanvas = defaultUiCanvas;
 
@@ -211,6 +278,17 @@ public class ClientMain : MonoBehaviorSingleton<ClientMain>
         //GuideManager = new GuideManager(Game.LocalUser, GuideDataRepository, AssetProvider);
 
         //MessagingManager = new MessagingManager();
+    }
+
+    private void VerifyApi()
+    {
+        ApiService.CallAPI<TIZSoft.UnknownGame.Common.API.UserRequest>(API_METHOD.HTTP_GET,
+                        new TIZSoft.UnknownGame.Common.API.UserRequest { m = 1 }, OnVerifyResponse);
+    }
+
+    public void OnVerifyResponse(ClientHttpRequest request)
+    {
+        Debug.Log("request: [" + request.GetText() + "]");
     }
 }
 

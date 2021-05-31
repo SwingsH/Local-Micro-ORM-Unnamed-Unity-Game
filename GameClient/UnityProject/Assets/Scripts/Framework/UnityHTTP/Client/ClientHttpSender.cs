@@ -1,5 +1,8 @@
 using System;
+using TIZSoft.Utils.Log;
+using TIZSoft.Utils;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 namespace TIZSoft.UnityHTTP.Client
 {
@@ -8,6 +11,8 @@ namespace TIZSoft.UnityHTTP.Client
     /// </summary>
     public class ClientHttpSender
     {
+        static readonly Logger logger = LogManager.Default.FindOrCreateCurrentTypeLogger();
+
         /// <summary>
         /// Gets the HTTP manager.
         /// </summary>
@@ -214,6 +219,8 @@ namespace TIZSoft.UnityHTTP.Client
                 RequestData = data,
                 OnResponded = onResponded
             };
+
+            logger.Debug(string.Format("HttpSender: host[{0}] path[{1}] query[{2}] head[{3}]", host, api, query, DebugString.Get(HttpManager.RequestCustomHeaders.Invoke())));
             return HttpManager.Request(requestInfo);
         }
     }

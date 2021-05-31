@@ -25,20 +25,20 @@ namespace TIZSoft.UnknownGame
         [SerializeField]
         StringReactiveProperty wasabiiUserId = new StringReactiveProperty();
 
-        [SerializeField]
-        IntReactiveProperty practiceDoubleCount = new IntReactiveProperty();
+        //[SerializeField]
+        //IntReactiveProperty practiceDoubleCount = new IntReactiveProperty();
 
-        [SerializeField]
-        IntReactiveProperty giftCount = new IntReactiveProperty();
+        //[SerializeField]
+        //IntReactiveProperty giftCount = new IntReactiveProperty();
 
-        [SerializeField]
-        IntReactiveProperty lunchCount = new IntReactiveProperty();
+        //[SerializeField]
+        //IntReactiveProperty lunchCount = new IntReactiveProperty();
 
-        [SerializeField]
-        IntReactiveProperty niaInfoCount = new IntReactiveProperty();
+        //[SerializeField]
+        //IntReactiveProperty niaInfoCount = new IntReactiveProperty();
 
-        [SerializeField]
-        IntReactiveProperty stamina = new IntReactiveProperty();
+        //[SerializeField]
+        //IntReactiveProperty stamina = new IntReactiveProperty();
 
         /// <summary>
         /// 取得或設定玩家 ID。

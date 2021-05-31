@@ -235,6 +235,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3cc9e0007d3c445a5cda16d9129466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assetManagerSettings:
+    shouldInitializeAutomatically: 0
+    isSimulationMode: 0
+    isDevelopmentAssetBundleServer: 0
+    assetBundleSourceType: 1
+    baseDownloadingUrl: http://localhost:7888
+    relativePath: /AssetBundles
+    manifestAssetBundleName: 
+    logMode: 1
+    maxUpdateFileAmount: 5
+    provideAtlas: 0
+    atlasPath: atlas
+    scenePath: scene
+  assetProviderSettings: {fileID: 0}
+  streamingAssetManagerSettings:
+    shouldInitializeAutomatically: 1
+    isSimulationMode: 0
+    isDevelopmentAssetBundleServer: 0
+    assetBundleSourceType: 0
+    baseDownloadingUrl: http://localhost:7888
+    relativePath: /AssetBundles
+    manifestAssetBundleName: 
+    logMode: 1
+    maxUpdateFileAmount: 5
+    provideAtlas: 0
+    atlasPath: atlas
+    scenePath: scene
+  streamingAssetProviderSettings: {fileID: 0}
+  assetBundleManager: {fileID: 0}
+  iapPresenter: {fileID: 0}
+  videoManager: {fileID: 0}
+  streamingAssetBundleManager: {fileID: 0}
+  unknowGameSaveSettings:
+    GameSaveFileName: gamesave.json
+  logLevel: 2
+  hostSettings:
+    DefaultHostId: local
+    Hosts:
+    - HostId: local
+      Host: http://127.0.0.1:4050/
 --- !u!4 &980840068
 Transform:
   m_ObjectHideFlags: 0

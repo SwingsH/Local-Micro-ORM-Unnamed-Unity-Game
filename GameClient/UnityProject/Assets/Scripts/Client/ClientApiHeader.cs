@@ -1,20 +1,23 @@
 using System.Collections.Generic;
+using TIZSoft.UnknownGame.SaveData;
 
 namespace TIZSoft.UnknownGame
 {
     public class ApiHeaderCreator
     {
-        public ApiHeaderCreator()
+        readonly UnknowGameSave unknowGameSave;
+        readonly User localUser;
+        public ApiHeaderCreator(UnknowGameSave save, User user)
         {
-            //this.localUser = localUser;
-            //this.Save = Save;
+            this.localUser = user;
+            this.unknowGameSave = save;
         }
 
         public IEnumerable<KeyValuePair<string, string>> CreateHeaders()
         {
             var headers = new Dictionary<string, string>();
-            headers["User-Id"] = "todo_user_id";
-            var token = "todo_assess_token";
+            headers["User-Id"] = unknowGameSave.GameSave.CurrentUserSave.Id.ToString();
+            var token = localUser.AccessToken.Value != null ? localUser.AccessToken.Value : "";
             headers["Token"] = token;
             return headers;
         }

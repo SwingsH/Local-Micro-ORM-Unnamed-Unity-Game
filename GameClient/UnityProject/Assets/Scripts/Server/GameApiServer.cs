@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityHTTPServer;
-using System.IO;
 using TIZSoft.UnityHTTP;
 using Newtonsoft.Json.Linq;
+using TIZSoft.Utils;
 using TIZSoft.Utils.Log;
 using TIZSoft.UnknownGame.Common.API;
 
@@ -114,40 +114,10 @@ namespace HttpServer
                 protocolMapping[tokenUrl].ProtocolMethod.Invoke(jsonStr);
                 //response.Body = " just test a response.Body from game server !";
                 response = response.FromText(" just test a response.Body from game server !");
-                UnityEngine.Debug.Log(response.Body);
+                UnityEngine.Debug.Log(string.Format("url[{0}] method[{1}] req.body[{2}] req.header[{3}] res.cont[{4}]", 
+                                      request.URL, request.Method, request.Body, DebugString.Get(request.Headers), Encoding.Default.GetString(response.Content) ));
                 //response.Content_Type = "text/html; charset=UTF-8";
             }
-
-            //// response forbidden 404
-            //string requestURL = request.URL;
-            //requestURL = requestURL.Replace("/", @"\").Replace("\\..", "").TrimStart('\\');
-            //string requestFile = Path.Combine(ServerRoot, requestURL);
-
-            //string extension = Path.GetExtension(requestFile);
-
-            //if (extension != "")
-            //{
-            //    //response specific file
-            //    response = response.FromFile(requestFile);
-            //} 
-            //else
-            //{
-            //    //response the directory list
-            //    if (Directory.Exists(requestFile) && !File.Exists(requestFile + "\\index.html"))
-            //    {
-            //        requestFile = Path.Combine(ServerRoot, requestFile);
-            //        var content = ListDirectory(requestFile, requestURL);
-            //        response = response.SetContent(content, Encoding.UTF8);
-            //        response.Content_Type = "text/html; charset=UTF-8";
-            //    } 
-            //    else
-            //    {
-            //        //response index file
-            //        requestFile = Path.Combine(requestFile, "index.html");
-            //        response = response.FromFile(requestFile);
-            //        response.Content_Type = "text/html; charset=UTF-8";
-            //    }
-            //}
 
             response.Send();
         }

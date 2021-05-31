@@ -12,6 +12,8 @@ public class UserSave
     public string Guid { get; set; }
     [Column("user_name")]
     public string Name { get; set; }
+    [Column("password")]
+    public string Password { get; set; }
     [Column("screen_name")]
     public string ScreenName { get; set; }
     [Column("create_time")]
