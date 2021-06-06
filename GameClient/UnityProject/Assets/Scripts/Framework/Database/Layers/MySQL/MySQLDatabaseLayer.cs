@@ -173,14 +173,16 @@ namespace TIZSoft.Database.MySQL
 
 		public void FetchSettingFromEditorPrefs()
         {
+#if UNITY_EDITOR
 			address = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_ADDRESS, address);
 			port = (uint)EditorPrefs.GetInt(Constants.EDITOR_PREFS_MYSQL_PORT, (int)port);
 			username = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_USERNAME, username);
 			password = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_PASSWORD, password);
 			dbName = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_DATABASE, dbName);
 			charset = EditorPrefs.GetString(Constants.EDITOR_PREFS_MYSQL_CHARSET, charset);
+#endif
 		}
-		
+
 		string GetConnectionString
 		{
 			get
